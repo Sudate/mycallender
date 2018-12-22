@@ -8,12 +8,14 @@ let h2 = UIScreen.main.bounds.size.height
 
 
 //スケジュール内容入力テキスト
-let eventText = UITextView(frame: CGRect(x: (w2 - 300) / 2, y: 100, width: 300, height: 200))
+let eventText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 150, width: 300, height: 50))
+
+
 
 //日付フォーム(UIDatePickerを使用)
-let y = UIDatePicker(frame: CGRect(x: 0, y: 300, width: w2, height: 300))
+let y = UIDatePicker(frame: CGRect(x: 340, y: 250, width: 280, height: 300))
 //日付表示
-let y_text = UILabel(frame: CGRect(x: (w2 - 300) / 2, y: 570, width: 300, height: 20))
+let y_text = UILabel(frame: CGRect(x: 340 , y: 550, width: 300, height: 20))
 class Input: UIViewController {
     var date: String!
     override func viewDidLoad() {
@@ -24,6 +26,7 @@ class Input: UIViewController {
         eventText.layer.borderColor = UIColor.gray.cgColor
         eventText.layer.borderWidth = 1.0
         eventText.layer.cornerRadius = 10.0
+        eventText.font = UIFont.systemFont(ofSize: 25)
         view.addSubview(eventText)
         
         //日付フォーム設定
@@ -55,6 +58,14 @@ class Input: UIViewController {
         backBtn.layer.borderWidth = 1.0
         backBtn.addTarget(self, action: #selector(onbackClick(_:)), for: .touchUpInside)
         view.addSubview(backBtn)
+        
+        
+        //Expenseラベル
+        let label = UILabel(frame: CGRect(x: 150, y:150, width:100, height:50))
+        label.text = "Expense"
+        label.font = UIFont.systemFont(ofSize: 25)
+        self.view.addSubview(label)
+        
         
     }
     //画面遷移(カレンダーページ)
