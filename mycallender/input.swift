@@ -17,6 +17,7 @@ let y = UIDatePicker(frame: CGRect(x: 340, y: 250, width: 280, height: 300))
 //日付表示
 let y_text = UILabel(frame: CGRect(x: 340 , y: 550, width: 300, height: 20))
 class Input: UIViewController {
+    let labelKeep = UILabel(frame: CGRect(x: 450, y:700, width:100, height:50))
     var date: String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,12 @@ class Input: UIViewController {
         eventInsert.backgroundColor = .orange
         eventInsert.addTarget(self, action: #selector(saveEvent(_:)), for: .touchUpInside)
         view.addSubview(eventInsert)
+    
+        //ラベル
+        //let labelKeep = UILabel(frame: CGRect(x: 450, y:195, width:100, height:50))
+        labelKeep.text = " "
+        labelKeep.font = UIFont.systemFont(ofSize: 25)
+        self.view.addSubview(labelKeep)
         
         //「戻る!」ボタン
         let backBtn = UIButton(frame: CGRect(x: (w - 200) / 2, y: h - 50, width: 200, height: 30))
@@ -65,6 +72,14 @@ class Input: UIViewController {
         label.text = "Expense"
         label.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(label)
+        
+        //Dateラベル
+        let labelDate = UILabel(frame: CGRect(x: 150, y:250, width:100, height:50))
+        labelDate.text = "Date"
+        labelDate.font = UIFont.systemFont(ofSize: 25)
+        self.view.addSubview(labelDate)
+    
+        
         
         
     }
@@ -94,6 +109,9 @@ class Input: UIViewController {
         }
         
         print("データ書き込み完了")
+        labelKeep.text = " saved! "
+        labelKeep.font = UIFont.systemFont(ofSize: 25)
+        self.view.addSubview(labelKeep)
         
         
         
