@@ -24,7 +24,7 @@
 		68D653C621B8A32B00169DA5 /* settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68D653C521B8A32B00169DA5 /* settings.storyboard */; };
 		68D653C821B8A33800169DA5 /* input.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68D653C721B8A33800169DA5 /* input.storyboard */; };
 		68D653CA21B8A35100169DA5 /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68D653C921B8A35100169DA5 /* home.storyboard */; };
-		A4442A6021B8C6480078AD61 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4442A5F21B8C6480078AD61 /* Event.swift */; };
+		A4507A3021CB33BA0025C65D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4507A2F21CB33BA0025C65D /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +72,7 @@
 		68D653C521B8A32B00169DA5 /* settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = settings.storyboard; sourceTree = "<group>"; };
 		68D653C721B8A33800169DA5 /* input.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = input.storyboard; sourceTree = "<group>"; };
 		68D653C921B8A35100169DA5 /* home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = home.storyboard; sourceTree = "<group>"; };
-		A4442A5F21B8C6480078AD61 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		A4507A2F21CB33BA0025C65D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		EC6B5A851BC5D11F334DBA44 /* Pods-mycallender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mycallender.release.xcconfig"; path = "Pods/Target Support Files/Pods-mycallender/Pods-mycallender.release.xcconfig"; sourceTree = "<group>"; };
 		F3E91E7016F13996B25F0446 /* Pods-mycallenderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mycallenderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mycallenderTests/Pods-mycallenderTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,9 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				68D6539121B8A2DD00169DA5 /* AppDelegate.swift */,
-
 				68D6539721B8A2DD00169DA5 /* Main.storyboard */,
 				68270E8D21B8B9C20053695D /* graph.swift */,
+				A4507A2F21CB33BA0025C65D /* Event.swift */,
 				68270E8B21B8B9A20053695D /* settings.swift */,
 				68270E8921B8B96E0053695D /* input.swift */,
 				68270E8721B8B9360053695D /* home.swift */,
@@ -425,11 +425,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4442A6021B8C6480078AD61 /* Event.swift in Sources */,
 				68270E8E21B8B9C20053695D /* graph.swift in Sources */,
 				68270E8A21B8B96E0053695D /* input.swift in Sources */,
 				68270E8C21B8B9A20053695D /* settings.swift in Sources */,
 				68D6539221B8A2DD00169DA5 /* AppDelegate.swift in Sources */,
+				A4507A3021CB33BA0025C65D /* Event.swift in Sources */,
 				68270E8821B8B9360053695D /* home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
