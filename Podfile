@@ -8,7 +8,7 @@ target 'mycallender' do
   pod 'RealmSwift'
   pod 'FSCalendar'
   pod 'CalculateCalendarLogic'
-
+  pod 'Charts'
 
   # Pods for mycallender
 
