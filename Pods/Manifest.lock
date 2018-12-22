@@ -1,30 +1,36 @@
 PODS:
   - CalculateCalendarLogic (0.2.0)
+  - Charts (3.2.1):
+    - Charts/Core (= 3.2.1)
+  - Charts/Core (3.2.1)
   - FSCalendar (2.8.0)
-  - Realm (3.12.0):
-    - Realm/Headers (= 3.12.0)
-  - Realm/Headers (3.12.0)
-  - RealmSwift (3.12.0):
-    - Realm (= 3.12.0)
+  - Realm (3.13.0):
+    - Realm/Headers (= 3.13.0)
+  - Realm/Headers (3.13.0)
+  - RealmSwift (3.13.0):
+    - Realm (= 3.13.0)
 
 DEPENDENCIES:
   - CalculateCalendarLogic
+  - Charts
   - FSCalendar
   - RealmSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CalculateCalendarLogic
+    - Charts
     - FSCalendar
     - Realm
     - RealmSwift
 
 SPEC CHECKSUMS:
   CalculateCalendarLogic: d7b6bf4ed6c0c21937efb7323c67d09cdb12a1ad
+  Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
-  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
-  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
+  Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
+  RealmSwift: be5ebc7930e37cd3376b41cec7f21984528aaa16
 
-PODFILE CHECKSUM: 74aa2bb5818e00306a1f0cf83895b43b1414f293
+PODFILE CHECKSUM: da02bf2e01c1f8dfc25d4c450c4476cdcaf9c5fb
 
 COCOAPODS: 1.5.3
