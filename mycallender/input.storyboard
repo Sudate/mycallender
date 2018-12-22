@@ -26,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.87073051199999996" green="1" blue="0.8543643125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="XpE-4t-m9N"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="記入" id="kSN-a0-Ucw"/>
