@@ -42,7 +42,7 @@ class Input: UIViewController {
         view.addSubview(y_text)
         
         //「書く!」ボタン
-        let eventInsert = UIButton(frame: CGRect(x: (w2 - 200) / 2, y: 600, width: 200, height: 50))
+        let eventInsert = UIButton(frame: CGRect(x: (w2 - 200) / 2, y: 800, width: 200, height: 50))
         eventInsert.setTitle("書く！", for: UIControl.State())
         eventInsert.setTitleColor(.white, for: UIControl.State())
         eventInsert.backgroundColor = .orange
