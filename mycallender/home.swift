@@ -10,13 +10,13 @@ let h = UIScreen.main.bounds.size.height
 class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     //保存した金額
-    let labelDate = UILabel(frame: CGRect(x: 250, y: 630, width: 400, height: 50))
+    let labelDate = UILabel(frame: CGRect(x: 250, y: 830, width: 400, height: 50))
     //タップした時にExpense表示
-    let labelTitle = UILabel(frame: CGRect(x: 60, y: 630, width: 180, height: 50))
+    let labelTitle = UILabel(frame: CGRect(x: 60, y: 830, width: 180, height: 50))
     //カレンダー部分
-    let dateView = FSCalendar(frame: CGRect(x: 0, y: 30, width: w, height: 400))
+    let dateView = FSCalendar(frame: CGRect(x: 0, y: 30, width: w, height: 600))
     //タップした日付の表示
-    let Date = UILabel(frame: CGRect(x: 60, y: 530, width: 200, height: 100))
+    let Date = UILabel(frame: CGRect(x: 60, y: 730, width: 200, height: 100))
     override func viewDidLoad() {
         super.viewDidLoad()
         //カレンダー設定
@@ -55,7 +55,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         //view.addSubview(addBtn)l
         
         //Total表示
-        let label = UILabel(frame: CGRect(x: 60, y:450, width:180, height:50))
+        let label = UILabel(frame: CGRect(x: 60, y:650, width:180, height:50))
         label.text = " Total ¥ "
         label.font = UIFont.systemFont(ofSize: 25)
         label.textAlignment = NSTextAlignment.center
