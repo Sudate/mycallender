@@ -8,14 +8,15 @@ let w = UIScreen.main.bounds.size.width
 let h = UIScreen.main.bounds.size.height
 
 class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
-    //スケジュール内容
-    let labelDate = UILabel(frame: CGRect(x: 5, y: 580, width: 400, height: 50))
-    //「主なスケジュール」の表示
-    let labelTitle = UILabel(frame: CGRect(x: 0, y: 530, width: 180, height: 50))
+    
+    //保存した金額
+    let labelDate = UILabel(frame: CGRect(x: 250, y: 830, width: 400, height: 50))
+    //タップした時にExpense表示
+    let labelTitle = UILabel(frame: CGRect(x: 60, y: 830, width: 180, height: 50))
     //カレンダー部分
-    let dateView = FSCalendar(frame: CGRect(x: 0, y: 30, width: w, height: 400))
-    //日付の表示
-    let Date = UILabel(frame: CGRect(x: 5, y: 430, width: 200, height: 100))
+    let dateView = FSCalendar(frame: CGRect(x: 0, y: 30, width: w, height: 600))
+    //タップした日付の表示
+    let Date = UILabel(frame: CGRect(x: 60, y: 730, width: 200, height: 100))
     override func viewDidLoad() {
         super.viewDidLoad()
         //カレンダー設定
@@ -51,7 +52,16 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         //addBtn.backgroundColor = .orange
         //addBtn.layer.cornerRadius = 30.0
         //addBtn.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
-        //view.addSubview(addBtn)
+        //view.addSubview(addBtn)l
+        
+        //Total表示
+        let label = UILabel(frame: CGRect(x: 60, y:650, width:180, height:50))
+        label.text = " Total ¥ "
+        label.font = UIFont.systemFont(ofSize: 25)
+        label.textAlignment = NSTextAlignment.center
+        label.textColor = .white
+        label.backgroundColor = .purple
+        self.view.addSubview(label)
         
         
     }
@@ -122,15 +132,17 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
     //カレンダー処理(スケジュール表示処理)
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition){
         
-        labelTitle.text = "＄収支金額＄"
+        labelTitle.text = " Expense "
         labelTitle.backgroundColor = .orange
         view.addSubview(labelTitle)
         
         //予定がある場合、スケジュールをDBから取得・表示する。
         //無い場合、「スケジュールはありません」と表示。
-        labelDate.text = "未記入です"
+        labelDate.text = " "
         labelDate.textColor = .lightGray
+        labelDate.backgroundColor = .orange
         view.addSubview(labelDate)
+        
         
         let tmpDate = Calendar(identifier: .gregorian)
         let year = tmpDate.component(.year, from: date)
@@ -152,9 +164,11 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         print(result)
         for ev in result {
             if ev.date == da {
-                labelDate.text = ev.event
+                labelDate.text = " ¥ " + ev.event
                 labelDate.textColor = .black
                 view.addSubview(labelDate)
+               
+            
             }
         }
         
