@@ -12,11 +12,11 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
 
     
     //保存した金額
-    let labelDate = UILabel(frame: CGRect(x: 250, y: 700, width: 300, height: 50))
+    let labelDate = UILabel(frame: CGRect(x: 250, y: 700, width: 200, height: 50))
     //保存した食費
-    let foodlabelDate = UILabel(frame: CGRect(x: 250, y: 800, width: 300, height: 50))
+    let foodlabelDate = UILabel(frame: CGRect(x: 250, y: 800, width: 200, height: 50))
     //保存した娯楽費
-    let EntertainmentlabelDate = UILabel(frame: CGRect(x: 250, y: 900, width: 300, height: 50))
+    let EntertainmentlabelDate = UILabel(frame: CGRect(x: 250, y: 900, width: 200, height: 50))
     
     
     //タップした時にExpense表示
