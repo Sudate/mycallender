@@ -10,14 +10,17 @@ let h2 = UIScreen.main.bounds.size.height
 //スケジュール内容入力テキスト
 let eventText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 150, width: 300, height: 50))
 
+let foodText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 200, width: 300, height: 50))
+
+let EntertainmentText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 250, width: 300, height: 50))
 
 
 //日付フォーム(UIDatePickerを使用)
-let y = UIDatePicker(frame: CGRect(x: 340, y: 250, width: 280, height: 300))
+let y = UIDatePicker(frame: CGRect(x: 340, y: 350, width: 280, height: 300))
 //日付表示
-let y_text = UILabel(frame: CGRect(x: 340 , y: 550, width: 300, height: 20))
+let y_text = UILabel(frame: CGRect(x: 340 , y: 650, width: 300, height: 20))
 class Input: UIViewController {
-    let labelKeep = UILabel(frame: CGRect(x: 450, y:700, width:100, height:50))
+    let labelKeep = UILabel(frame: CGRect(x: 450, y:800, width:100, height:50))
     var date: String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +32,25 @@ class Input: UIViewController {
         eventText.layer.cornerRadius = 10.0
         eventText.font = UIFont.systemFont(ofSize: 25)
         view.addSubview(eventText)
+        //娯楽費内容入力テキスト設定
+        EntertainmentText.text = ""
+        EntertainmentText.layer.borderColor = UIColor.gray.cgColor
+        EntertainmentText.layer.borderWidth = 1.0
+        EntertainmentText.layer.cornerRadius = 10.0
+        EntertainmentText.font = UIFont.systemFont(ofSize: 25)
+        view.addSubview(EntertainmentText)
         
+        
+        
+        //food内容入力テキスト設定
+        foodText.text = ""
+        foodText.layer.borderColor = UIColor.gray.cgColor
+        foodText.layer.borderWidth = 1.0
+        foodText.layer.cornerRadius = 10.0
+        foodText.font = UIFont.systemFont(ofSize: 25)
+        view.addSubview(foodText)
+        
+
         //日付フォーム設定
         y.datePickerMode = UIDatePicker.Mode.date
         y.timeZone = NSTimeZone.local
@@ -39,6 +60,12 @@ class Input: UIViewController {
         //日付表示設定
         y_text.backgroundColor = .white
         y_text.textAlignment = .center
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        y_text.text = String(year) + "/" + String(format:"%02d", month) + "/" + String(format:"%02d", day)
         view.addSubview(y_text)
         
         //「書く!」ボタン
@@ -73,8 +100,22 @@ class Input: UIViewController {
         label.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(label)
         
+        //foodラベル
+        let foodlabel = UILabel(frame: CGRect(x: 150, y:200, width:100, height:50))
+        foodlabel.text = "食費"
+        foodlabel.font = UIFont.systemFont(ofSize: 25)
+        self.view.addSubview(foodlabel)
+        
+        //娯楽費ラベル
+        let entertainmentlabel = UILabel(frame: CGRect(x: 150, y:250, width:100, height:50))
+        entertainmentlabel.text = "娯楽費"
+        entertainmentlabel.font = UIFont.systemFont(ofSize: 25)
+        self.view.addSubview(entertainmentlabel)
+        
+        
+        
         //Dateラベル
-        let labelDate = UILabel(frame: CGRect(x: 150, y:250, width:100, height:50))
+        let labelDate = UILabel(frame: CGRect(x: 150, y:300, width:100, height:50))
         labelDate.text = "Date"
         labelDate.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(labelDate)
@@ -101,9 +142,14 @@ class Input: UIViewController {
         
         let realm = try! Realm()
         
+        
+        
+        
+        
         try! realm.write {
+            
             //日付表示の内容とスケジュール入力の内容が書き込まれる。
-            let Events = [Event(value: ["date": y_text.text, "event": eventText.text])]
+            let Events = [Event(value: ["EntertainmentExpenses": EntertainmentText.text,"date": y_text.text,"FoodExpense":foodText.text,"event": eventText.text])]
             realm.add(Events)
             print("データ書き込み中")
         }
@@ -118,6 +164,6 @@ class Input: UIViewController {
     }
     
     
-    
-    
 }
+
+
