@@ -10,6 +10,7 @@ let h2 = UIScreen.main.bounds.size.height
 //スケジュール内容入力テキスト
 let eventText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 150, width: 300, height: 50))
 
+let foodText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 200, width: 300, height: 50))
 
 
 //日付フォーム(UIDatePickerを使用)
@@ -29,6 +30,14 @@ class Input: UIViewController {
         eventText.layer.cornerRadius = 10.0
         eventText.font = UIFont.systemFont(ofSize: 25)
         view.addSubview(eventText)
+        
+        //food内容入力テキスト設定
+        foodText.text = ""
+        foodText.layer.borderColor = UIColor.gray.cgColor
+        foodText.layer.borderWidth = 1.0
+        foodText.layer.cornerRadius = 10.0
+        foodText.font = UIFont.systemFont(ofSize: 25)
+        view.addSubview(foodText)
         
         //日付フォーム設定
         y.datePickerMode = UIDatePicker.Mode.date
@@ -73,6 +82,12 @@ class Input: UIViewController {
         label.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(label)
         
+        //foodラベル
+        let foodlabel = UILabel(frame: CGRect(x: 150, y:200, width:100, height:50))
+        foodlabel.text = "Food"
+        foodlabel.font = UIFont.systemFont(ofSize: 25)
+        self.view.addSubview(foodlabel)
+        
         //Dateラベル
         let labelDate = UILabel(frame: CGRect(x: 150, y:250, width:100, height:50))
         labelDate.text = "Date"
@@ -101,9 +116,14 @@ class Input: UIViewController {
         
         let realm = try! Realm()
         
+        
+        
+        
+        
         try! realm.write {
+            
             //日付表示の内容とスケジュール入力の内容が書き込まれる。
-            let Events = [Event(value: ["date": y_text.text, "event": eventText.text])]
+            let Events = [Event(value: ["date": y_text.text,"FoodExpense":foodText.text,"event": eventText.text])]
             realm.add(Events)
             print("データ書き込み中")
         }
