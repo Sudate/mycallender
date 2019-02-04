@@ -60,6 +60,12 @@ class Input: UIViewController {
         //日付表示設定
         y_text.backgroundColor = .white
         y_text.textAlignment = .center
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        y_text.text = String(year) + "/" + String(format:"%02d", month) + "/" + String(format:"%02d", day)
         view.addSubview(y_text)
         
         //「書く!」ボタン

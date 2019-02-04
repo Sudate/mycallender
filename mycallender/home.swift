@@ -22,6 +22,8 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
     
     //タップした時にExpense表示
     let labelTitle = UILabel(frame: CGRect(x: 60, y: 830, width: 180, height: 50))
+    
+    
     //カレンダー部分
     let dateView = FSCalendar(frame: CGRect(x: 0, y: 30, width: w, height: 600))
     //タップした日付の表示
