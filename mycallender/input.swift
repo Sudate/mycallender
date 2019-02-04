@@ -32,6 +32,15 @@ class Input: UIViewController {
         eventText.layer.cornerRadius = 10.0
         eventText.font = UIFont.systemFont(ofSize: 25)
         view.addSubview(eventText)
+        //娯楽費内容入力テキスト設定
+        EntertainmentText.text = ""
+        EntertainmentText.layer.borderColor = UIColor.gray.cgColor
+        EntertainmentText.layer.borderWidth = 1.0
+        EntertainmentText.layer.cornerRadius = 10.0
+        EntertainmentText.font = UIFont.systemFont(ofSize: 25)
+        view.addSubview(EntertainmentText)
+        
+        
         
         //food内容入力テキスト設定
         foodText.text = ""
@@ -41,14 +50,7 @@ class Input: UIViewController {
         foodText.font = UIFont.systemFont(ofSize: 25)
         view.addSubview(foodText)
         
-        //娯楽費内容入力テキスト設定
-        EntertainmentText.text = ""
-        EntertainmentText.layer.borderColor = UIColor.gray.cgColor
-        EntertainmentText.layer.borderWidth = 1.0
-        EntertainmentText.layer.cornerRadius = 10.0
-        EntertainmentText.font = UIFont.systemFont(ofSize: 25)
-        view.addSubview(EntertainmentText)
-        
+
         //日付フォーム設定
         y.datePickerMode = UIDatePicker.Mode.date
         y.timeZone = NSTimeZone.local
@@ -141,7 +143,7 @@ class Input: UIViewController {
         try! realm.write {
             
             //日付表示の内容とスケジュール入力の内容が書き込まれる。
-            let Events = [Event(value: ["date": y_text.text,"FoodExpense":foodText.text,"event": eventText.text,"entertainment": EntertainmentText.text])]
+            let Events = [Event(value: ["EntertainmentExpenses": EntertainmentText.text,"date": y_text.text,"FoodExpense":foodText.text,"event": eventText.text])]
             realm.add(Events)
             print("データ書き込み中")
         }
