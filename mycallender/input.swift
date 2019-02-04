@@ -150,7 +150,9 @@ class Input: UIViewController {
             
             //日付表示の内容とスケジュール入力の内容が書き込まれる。
             let Events = [Event(value: ["EntertainmentExpenses": EntertainmentText.text,"date": y_text.text,"FoodExpense":foodText.text,"event": eventText.text])]
-            realm.add(Events)
+            realm.add(Events,update: true)
+           
+            
             print("データ書き込み中")
         }
         
