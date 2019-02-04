@@ -16,6 +16,8 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
     
     //保存した食費
     let foodlabelDate = UILabel(frame: CGRect(x: 250, y: 930, width: 400, height: 50))
+    //保存した娯楽費
+    let EntertainmentlabelDate = UILabel(frame: CGRect(x: 250, y: 1030, width: 400, height: 50))
     
     
     //タップした時にExpense表示
@@ -57,6 +59,11 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         foodlabelDate.text = ""
         foodlabelDate.font = UIFont.systemFont(ofSize: 18.0)
         view.addSubview(foodlabelDate)
+        
+        //娯楽費内容表示設定
+        EntertainmentlabelDate.text = ""
+        EntertainmentlabelDate.font = UIFont.systemFont(ofSize: 18.0)
+        view.addSubview(EntertainmentlabelDate)
 
         
         //スケジュール追加ボタン
@@ -162,6 +169,11 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         foodlabelDate.backgroundColor = .orange
         view.addSubview(foodlabelDate)
         
+        EntertainmentlabelDate.text = " "
+        EntertainmentlabelDate.textColor = .lightGray
+        EntertainmentlabelDate.backgroundColor = .orange
+        view.addSubview(EntertainmentlabelDate)
+        
         
         let tmpDate = Calendar(identifier: .gregorian)
         let year = tmpDate.component(.year, from: date)
@@ -190,6 +202,9 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
                 foodlabelDate.text = " ¥ " + ev.FoodExpense
                 foodlabelDate.textColor = .black
                 view.addSubview(foodlabelDate)
+                EntertainmentlabelDate.text = " ¥ " + String(ev.EntertainmentExpenses)
+                EntertainmentlabelDate.textColor = .black
+                view.addSubview(EntertainmentlabelDate)
                
             
             }

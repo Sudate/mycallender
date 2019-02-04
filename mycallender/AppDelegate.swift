@@ -18,14 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // ここから追加
-        let config = Realm.Configuration(
-            schemaVersion: 1,
-            migrationBlock: { migration, oldSchemaVersion in
-                if (oldSchemaVersion < 1) {}
-        })
-        Realm.Configuration.defaultConfiguration = config
+        //let config = Realm.Configuration(
+          //  schemaVersion: 2,
+            //migrationBlock: { migration, oldSchemaVersion in
+              //  if (oldSchemaVersion < 2) {}
+        //})
+        //Realm.Configuration.defaultConfiguration = config
         // ここまで
-     
+        let config = Realm.Configuration(schemaVersion: 2)
+        Realm.Configuration.defaultConfiguration = config
+        
+        
         return true
     }
 
