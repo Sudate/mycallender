@@ -9,8 +9,15 @@ let h = UIScreen.main.bounds.size.height
 
 class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
+
+    
     //保存した金額
     let labelDate = UILabel(frame: CGRect(x: 250, y: 830, width: 400, height: 50))
+    
+    //保存した食費
+    let foodlabelDate = UILabel(frame: CGRect(x: 250, y: 930, width: 400, height: 50))
+    
+    
     //タップした時にExpense表示
     let labelTitle = UILabel(frame: CGRect(x: 60, y: 830, width: 180, height: 50))
     //カレンダー部分
@@ -44,6 +51,13 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         labelDate.text = ""
         labelDate.font = UIFont.systemFont(ofSize: 18.0)
         view.addSubview(labelDate)
+        
+        
+        //food内容表示設定
+        foodlabelDate.text = ""
+        foodlabelDate.font = UIFont.systemFont(ofSize: 18.0)
+        view.addSubview(foodlabelDate)
+
         
         //スケジュール追加ボタン
        // let addBtn = UIButton(frame: CGRect(x: w - 70, y: h - 170, width: 60, height: 60))
@@ -143,6 +157,11 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         labelDate.backgroundColor = .orange
         view.addSubview(labelDate)
         
+        foodlabelDate.text = " "
+        foodlabelDate.textColor = .lightGray
+        foodlabelDate.backgroundColor = .orange
+        view.addSubview(foodlabelDate)
+        
         
         let tmpDate = Calendar(identifier: .gregorian)
         let year = tmpDate.component(.year, from: date)
@@ -159,14 +178,18 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         
         //スケジュール取得
         let realm = try! Realm()
+
         var result = realm.objects(Event.self)
         result = result.filter("date = '\(da)'")
         print(result)
         for ev in result {
             if ev.date == da {
-                labelDate.text = " ¥ " + ev.event
+                labelDate.text = " ¥ " + String(ev.event)
                 labelDate.textColor = .black
                 view.addSubview(labelDate)
+                foodlabelDate.text = " ¥ " + ev.FoodExpense
+                foodlabelDate.textColor = .black
+                view.addSubview(foodlabelDate)
                
             
             }
