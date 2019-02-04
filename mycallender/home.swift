@@ -12,22 +12,27 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
 
     
     //保存した金額
-    let labelDate = UILabel(frame: CGRect(x: 250, y: 830, width: 400, height: 50))
-    
+    let labelDate = UILabel(frame: CGRect(x: 250, y: 700, width: 200, height: 50))
     //保存した食費
-    let foodlabelDate = UILabel(frame: CGRect(x: 250, y: 930, width: 400, height: 50))
+    let foodlabelDate = UILabel(frame: CGRect(x: 250, y: 800, width: 200, height: 50))
     //保存した娯楽費
-    let EntertainmentlabelDate = UILabel(frame: CGRect(x: 250, y: 1030, width: 400, height: 50))
+    let EntertainmentlabelDate = UILabel(frame: CGRect(x: 250, y: 900, width: 200, height: 50))
     
     
     //タップした時にExpense表示
-    let labelTitle = UILabel(frame: CGRect(x: 60, y: 830, width: 180, height: 50))
+    let labelTitle = UILabel(frame: CGRect(x: 60, y: 700, width: 180, height: 50))
+
+    //タップした時に食費表示
+    let foodlabelTitle = UILabel(frame: CGRect(x: 60, y: 800, width: 180, height: 50))
+    
+    //タップした時に娯楽費表示
+    let EntlabelTitle = UILabel(frame: CGRect(x: 60, y: 900, width: 180, height: 50))
     
     
     //カレンダー部分
-    let dateView = FSCalendar(frame: CGRect(x: 0, y: 30, width: w, height: 600))
+    let dateView = FSCalendar(frame: CGRect(x: 0, y: 30, width: w, height: 500))
     //タップした日付の表示
-    let Date = UILabel(frame: CGRect(x: 60, y: 730, width: 200, height: 100))
+    let Date = UILabel(frame: CGRect(x: 60, y: 600, width: 200, height: 100))
     override func viewDidLoad() {
         super.viewDidLoad()
         //カレンダー設定
@@ -78,7 +83,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         //view.addSubview(addBtn)l
         
         //Total表示
-        let label = UILabel(frame: CGRect(x: 60, y:650, width:180, height:50))
+        let label = UILabel(frame: CGRect(x: 60, y:550, width:180, height:50))
         label.text = " Total ¥ "
         label.font = UIFont.systemFont(ofSize: 25)
         label.textAlignment = NSTextAlignment.center
@@ -157,7 +162,20 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         
         labelTitle.text = " Expense "
         labelTitle.backgroundColor = .orange
+        labelTitle.textAlignment = .center
         view.addSubview(labelTitle)
+        
+        foodlabelTitle.text = " 食費 "
+        foodlabelTitle.backgroundColor = .orange
+        foodlabelTitle.textAlignment = .center
+        view.addSubview(foodlabelTitle)
+        
+        EntlabelTitle.text = " 娯楽費 "
+        EntlabelTitle.backgroundColor = .orange
+        EntlabelTitle.textAlignment = .center
+        view.addSubview(EntlabelTitle)
+        
+        
         
         //予定がある場合、スケジュールをDBから取得・表示する。
         //無い場合、「スケジュールはありません」と表示。
