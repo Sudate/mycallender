@@ -105,6 +105,7 @@ class graph: UIViewController {
         dataSet.colors = ChartColorTemplates.vordiplom()
         chart.data = PieChartData(dataSet: dataSet)
         print(result)
+        
         }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
