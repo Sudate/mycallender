@@ -19,6 +19,7 @@ class graph: UIViewController {
     
     var ar:[Double] = []
     var ar2:[String] = []
+    var ar3:[Double] = []
     
     @IBOutlet weak var button: UIButton!
     @IBOutlet var BaseCharts: PieChartView!
@@ -93,15 +94,17 @@ class graph: UIViewController {
         for dates in result {
             let x = Double(dates.event)
             let y = String(dates.date)
+            let z = Double(dates.FoodExpense)
             if label2.text == y {
                 ar.append(x!)
                 ar2.append(y)
+                ar3.append(z!)
                 chart.centerText = dates.date
             }
-            
+            print(result)
         }
         //let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar[0], label: ar2[0]), PieChartDataEntry(value: ar[1], label: ar2[1]),PieChartDataEntry(value: ar[2], label: ar2[2]),PieChartDataEntry(value: ar[3], label: ar2[3]),PieChartDataEntry(value: ar[4], label: ar2[4]),PieChartDataEntry(value: ar[5], label: ar2[5]),PieChartDataEntry(value: ar[6], label: ar2[6])], label: "Date")
-        let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar[0], label: ar2[0])], label: "Date")
+        let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar[0], label: ar2[0]),PieChartDataEntry(value: ar3[0], label: ar2[0])], label: "Date")
         dataSet.colors = ChartColorTemplates.vordiplom()
         chart.data = PieChartData(dataSet: dataSet)
         print(result)
