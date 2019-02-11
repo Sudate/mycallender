@@ -16,9 +16,12 @@ class graph: UIViewController {
     let label = UILabel()
     var textFieldString = ""
     
-    var ar:[Double] = []
+    var ar1:[Double] = []
     var ar2:[String] = []
     var ar3:[Double] = []
+    var ar4:[Double] = []
+    var ar5:[Double] = []
+    var ar6:[Double] = []
     
     @IBOutlet weak var button: UIButton!
     @IBOutlet var BaseCharts: PieChartView!
@@ -59,15 +62,21 @@ class graph: UIViewController {
         let result = realm.objects(Event.self)
         print(result)
         for dates in result {
+            let t = Double(dates.EntertainmentExpenses)
+            let u = Double(dates.koutuu)
+            let v = Double(dates.zappi)
             let x = Double(dates.event)
             let y = String(dates.date)
             let z = Double(dates.FoodExpense)
             if label2.text == y {
-                    ar.append(x!)
+                    ar4.append(t!)
+                    ar5.append(u!)
+                    ar6.append(v!)
+                    ar1.append(x!)
                     ar2.append(y)
                     ar3.append(z!)
                 BaseCharts.centerText = dates.date
-                let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar.last!, label: "ALL"),PieChartDataEntry(value: ar3.last!, label: "Food")], label: "Date")
+                let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar1.last!, label: "交際費"),PieChartDataEntry(value: ar3.last!, label: "食費"),PieChartDataEntry(value: ar4.last!, label: "娯楽費"),PieChartDataEntry(value: ar5.last!, label: "交通費"),PieChartDataEntry(value: ar6.last!, label: "雑費")], label: "Date")
                 //dataSet.colors = ChartColorTemplates.vordiplom()
                 dataSet.colors = ChartColorTemplates.colorful()
                 BaseCharts.data = PieChartData(dataSet: dataSet)
