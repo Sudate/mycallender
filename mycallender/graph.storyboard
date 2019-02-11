@@ -76,7 +76,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Daily"/>
                                 <connections>
-                                    <segue destination="Zc9-vl-B7m" kind="show" id="GDJ-Zs-C9i"/>
+                                    <action selector="buttonPressed:" destination="oE3-3T-88d" eventType="touchUpInside" id="7oS-gh-FpM"/>
+                                    <segue destination="fB5-IQ-RST" kind="unwind" unwindAction="unwindToTopWithSegue:" id="YjN-Tk-yht"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AGl-yr-bTm" customClass="PieChartView" customModule="Charts">
@@ -101,6 +102,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pT-p6-DGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fB5-IQ-RST" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="589.84375" y="-1174.21875"/>
         </scene>

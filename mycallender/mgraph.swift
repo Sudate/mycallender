@@ -15,6 +15,7 @@ class mgraph: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var pieChart: PieChartView!
     
+    
     var pickerView: UIPickerView = UIPickerView()
     let list: [String] = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月","9月","10月","11月","12月"]
     
@@ -51,6 +52,11 @@ class mgraph: UIViewController {
         print(result)
         
     }
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension mgraph : UIPickerViewDelegate, UIPickerViewDataSource {
