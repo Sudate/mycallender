@@ -11,22 +11,32 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
     
 
     
-    //保存した金額
-    let labelDate = UILabel(frame: CGRect(x: 250, y: 700, width: 200, height: 50))
+    
     //保存した食費
-    let foodlabelDate = UILabel(frame: CGRect(x: 250, y: 800, width: 200, height: 50))
+    let foodlabelDate = UILabel(frame: CGRect(x: 250, y: 700, width: 200, height: 50))
     //保存した娯楽費
-    let EntertainmentlabelDate = UILabel(frame: CGRect(x: 250, y: 900, width: 200, height: 50))
+    let EntertainmentlabelDate = UILabel(frame: CGRect(x: 250, y: 750, width: 200, height: 50))
+    //保存した交際費
+    let labelDate = UILabel(frame: CGRect(x: 250, y: 800, width: 200, height: 50))
+    //保存した交通費
+    let koutuulabelDate = UILabel(frame: CGRect(x: 250, y: 850, width: 200, height: 50))
+    //保存した雑費
+    let zappilabelDate = UILabel(frame: CGRect(x: 250, y: 900, width: 200, height: 50))
     
     
-    //タップした時にExpense表示
-    let labelTitle = UILabel(frame: CGRect(x: 60, y: 700, width: 180, height: 50))
-
+    
     //タップした時に食費表示
-    let foodlabelTitle = UILabel(frame: CGRect(x: 60, y: 800, width: 180, height: 50))
-    
+    let foodlabelTitle = UILabel(frame: CGRect(x: 60, y: 700, width: 180, height: 50))
     //タップした時に娯楽費表示
-    let EntlabelTitle = UILabel(frame: CGRect(x: 60, y: 900, width: 180, height: 50))
+    let EntlabelTitle = UILabel(frame: CGRect(x: 60, y: 750, width: 180, height: 50))
+    //タップした時に交際費表示
+    let labelTitle = UILabel(frame: CGRect(x: 60, y: 800, width: 180, height: 50))
+    //タップした時に交通費表示
+    let koutuulabelTitle = UILabel(frame: CGRect(x: 60, y: 850, width: 180, height: 50))
+    //タップした時に雑費表示
+    let zappilabelTitle = UILabel(frame: CGRect(x: 60, y: 900, width: 180, height: 50))
+
+    
     
     
     //カレンダー部分
@@ -56,7 +66,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         labelTitle.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(labelTitle)
         
-        //スケジュール内容表示設定
+        //交際費表示設定
         labelDate.text = ""
         labelDate.font = UIFont.systemFont(ofSize: 18.0)
         view.addSubview(labelDate)
@@ -71,7 +81,16 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         EntertainmentlabelDate.text = ""
         EntertainmentlabelDate.font = UIFont.systemFont(ofSize: 18.0)
         view.addSubview(EntertainmentlabelDate)
-
+        
+        //交通費表示設定
+        koutuulabelDate.text = ""
+        koutuulabelDate.font = UIFont.systemFont(ofSize: 18.0)
+        view.addSubview(koutuulabelDate)
+        
+        //雑費表示設定
+        zappilabelDate.text = ""
+        zappilabelDate.font = UIFont.systemFont(ofSize: 18.0)
+        view.addSubview(zappilabelDate)
         
         //スケジュール追加ボタン
        // let addBtn = UIButton(frame: CGRect(x: w - 70, y: h - 170, width: 60, height: 60))
@@ -160,7 +179,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
     //カレンダー処理(スケジュール表示処理)
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition){
         
-        labelTitle.text = " Expense "
+        labelTitle.text = " 交際費 "
         labelTitle.backgroundColor = .orange
         labelTitle.textAlignment = .center
         view.addSubview(labelTitle)
@@ -175,6 +194,15 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         EntlabelTitle.textAlignment = .center
         view.addSubview(EntlabelTitle)
         
+        koutuulabelTitle.text = " 交通費 "
+        koutuulabelTitle.backgroundColor = .orange
+        koutuulabelTitle.textAlignment = .center
+        view.addSubview(koutuulabelTitle)
+        
+        zappilabelTitle.text = " 雑費 "
+        zappilabelTitle.backgroundColor = .orange
+        zappilabelTitle.textAlignment = .center
+        view.addSubview(zappilabelTitle)
         
         
         //予定がある場合、スケジュールをDBから取得・表示する。
@@ -193,6 +221,16 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         EntertainmentlabelDate.textColor = .lightGray
         EntertainmentlabelDate.backgroundColor = .orange
         view.addSubview(EntertainmentlabelDate)
+        
+        koutuulabelDate.text = " "
+        koutuulabelDate.textColor = .lightGray
+        koutuulabelDate.backgroundColor = .orange
+        view.addSubview(koutuulabelDate)
+        
+        zappilabelDate.text = " "
+        zappilabelDate.textColor = .lightGray
+        zappilabelDate.backgroundColor = .orange
+        view.addSubview(zappilabelDate)
         
         
         let tmpDate = Calendar(identifier: .gregorian)
@@ -225,7 +263,14 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
                 EntertainmentlabelDate.text = " ¥ " + String(ev.EntertainmentExpenses)
                 EntertainmentlabelDate.textColor = .black
                 view.addSubview(EntertainmentlabelDate)
-               
+                koutuulabelDate.text = " ¥ " + ev.koutuu
+                koutuulabelDate.textColor = .black
+                view.addSubview(koutuulabelDate)
+                zappilabelDate.text = " ¥ " + ev.zappi
+                zappilabelDate.textColor = .black
+                view.addSubview(zappilabelDate)
+                
+                
             
             }
         }
