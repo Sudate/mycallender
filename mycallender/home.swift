@@ -22,8 +22,8 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
     let koutuulabelDate = UILabel(frame: CGRect(x: 250, y: 850, width: 200, height: 50))
     //保存した雑費
     let zappilabelDate = UILabel(frame: CGRect(x: 250, y: 900, width: 200, height: 50))
-    
-    
+    //保存したtotal
+    let totallabelData=UILabel(frame: CGRect(x: 250, y: 550, width: 200, height: 50))
     
     //タップした時に食費表示
     let foodlabelTitle = UILabel(frame: CGRect(x: 60, y: 700, width: 180, height: 50))
@@ -36,7 +36,8 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
     //タップした時に雑費表示
     let zappilabelTitle = UILabel(frame: CGRect(x: 60, y: 900, width: 180, height: 50))
 
-    
+    //タップした時にtotall表示
+    let totallabelTitle=UILabel(frame: CGRect(x: 60, y: 550, width: 180, height: 50))
     
     
     //カレンダー部分
@@ -92,6 +93,11 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         zappilabelDate.font = UIFont.systemFont(ofSize: 18.0)
         view.addSubview(zappilabelDate)
         
+        //total表示設定
+        totallabelData.text=""
+        totallabelData.font = UIFont.systemFont(ofSize: 18.0)
+        view.addSubview(totallabelData)
+        
         //スケジュール追加ボタン
        // let addBtn = UIButton(frame: CGRect(x: w - 70, y: h - 170, width: 60, height: 60))
         //addBtn.setTitle("+", for: UIControl.State())
@@ -103,7 +109,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         
         //Total表示
         let label = UILabel(frame: CGRect(x: 60, y:550, width:180, height:50))
-        label.text = " Total ¥ "
+        label.text = " Total  "
         label.font = UIFont.systemFont(ofSize: 25)
         label.textAlignment = NSTextAlignment.center
         label.textColor = .white
@@ -270,8 +276,17 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
                 zappilabelDate.textColor = .black
                 view.addSubview(zappilabelDate)
                 
+                let a:Double=Double(ev.event)!
+                let b:Double=Double(ev.FoodExpense)!
+                let c:Double=Double(ev.EntertainmentExpenses)!
+                let d:Double=Double(ev.koutuu)!
+                let e:Double=Double(ev.zappi)!
                 
-            
+                let sum = a+b+c+d+e
+                let printSum = Int(sum)
+                totallabelData.text = " ¥ " + String(printSum)
+                totallabelData.textColor = .black
+                view.addSubview(totallabelData)
             }
         }
         
