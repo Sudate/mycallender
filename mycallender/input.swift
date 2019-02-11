@@ -23,7 +23,7 @@ let y = UIDatePicker(frame: CGRect(x: 340, y: 400, width: 280, height: 300))
 //日付表示
 let y_text = UILabel(frame: CGRect(x: 340 , y: 700, width: 300, height: 20))
 class Input: UIViewController {
-    let labelKeep = UILabel(frame: CGRect(x: 550, y:800, width:100, height:50))
+    var labelKeep = UILabel(frame: CGRect(x: 550, y:800, width:100, height:50))
     var date: String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -194,15 +194,20 @@ class Input: UIViewController {
         }
         
         print("データ書き込み完了")
+        
         labelKeep.text = " saved! "
         labelKeep.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(labelKeep)
         
         
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            // 3.0秒後に実行したい処理
+            self.labelKeep.text = " "
+            self.view.addSubview(self.labelKeep)
+        }
         
     }
     
     
 }
-
-
