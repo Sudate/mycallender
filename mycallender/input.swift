@@ -108,37 +108,37 @@ class Input: UIViewController {
         
         //交際費ラベル
         let label = UILabel(frame: CGRect(x: 150, y:200, width:100, height:50))
-        label.text = "交際費"
+        label.text = "交際費🥂"
         label.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(label)
         
         //foodラベル
         let foodlabel = UILabel(frame: CGRect(x: 150, y:150, width:100, height:50))
-        foodlabel.text = "食費"
+        foodlabel.text = "食費 🍽"
         foodlabel.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(foodlabel)
         
         //娯楽費ラベル
         let entertainmentlabel = UILabel(frame: CGRect(x: 150, y:250, width:100, height:50))
-        entertainmentlabel.text = "娯楽費"
+        entertainmentlabel.text = "娯楽費🎶"
         entertainmentlabel.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(entertainmentlabel)
         
         //交通費ラベル
         let koutuulabel = UILabel(frame: CGRect(x: 150, y:300, width:100, height:50))
-        koutuulabel.text = "交通費"
+        koutuulabel.text = "交通費🚍"
         koutuulabel.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(koutuulabel)
         
         //雑費ラベル
         let zappilabel = UILabel(frame: CGRect(x: 150, y:350, width:100, height:50))
-        zappilabel.text = "雑費"
+        zappilabel.text = "雑費 📦"
         zappilabel.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(zappilabel)
         
         //Dateラベル
-        let labelDate = UILabel(frame: CGRect(x: 150, y:450, width:100, height:50))
-        labelDate.text = "日付"
+        let labelDate = UILabel(frame: CGRect(x: 150, y:500, width:100, height:50))
+        labelDate.text = "日付 🗓"
         labelDate.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(labelDate)
     
