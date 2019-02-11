@@ -144,12 +144,21 @@ class Input: UIViewController {
         
         
         
-        
+        if (EntertainmentText.text==""){
+            EntertainmentText.text="0"
+        }
+        if (foodText.text==""){
+            foodText.text="0"
+        }
+        if (eventText.text==""){
+            eventText.text="0"
+        }
         
         try! realm.write {
             
             //日付表示の内容とスケジュール入力の内容が書き込まれる。
-            let Events = [Event(value: ["EntertainmentExpenses": EntertainmentText.text,"date": y_text.text,"FoodExpense":foodText.text,"event": eventText.text])]
+            let Events = [Event(value: ["EntertainmentExpenses": EntertainmentText.text,"date":
+                y_text.text,"FoodExpense":foodText.text,"event": eventText.text])]
             realm.add(Events,update: true)
            
             
