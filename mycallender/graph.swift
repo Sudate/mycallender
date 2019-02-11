@@ -13,12 +13,15 @@ import RealmSwift
 class graph: UIViewController {
 
     var ftext = UITextField()
-    let chart = PieChartView()
     let label = UILabel()
     var textFieldString = ""
     
-    var ar:[Double] = []
+    var ar1:[Double] = []
     var ar2:[String] = []
+    var ar3:[Double] = []
+    var ar4:[Double] = []
+    var ar5:[Double] = []
+    var ar6:[Double] = []
     
     @IBOutlet weak var button: UIButton!
     @IBOutlet var BaseCharts: PieChartView!
@@ -26,20 +29,15 @@ class graph: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        //ftext.keyboardType = UIKeyboardType.numberPad
-
         button.frame = CGRect(x:500, y : 100, width:100, height : 50);
         label.frame = CGRect(x:320, y:150, width:160, height:30)
         label2.frame = CGRect(x:230, y:200, width:300, height:50)
         ftext.frame = CGRect(x : 270, y : 100, width:200, height : 50);
-        chart.frame = CGRect(x : 50, y : 300, width : 650, height :  650);
-        chart.chartDescription?.enabled = false
-        
+        BaseCharts.frame = CGRect(x : 50, y : 300, width : 650, height :  650);
+        BaseCharts.chartDescription?.enabled = false
         
         // テキストを中央寄せ
         label2.textAlignment = NSTextAlignment.center
-        
         label2.layer.borderColor = UIColor(red: 0.1, green: 0.7, blue: 1.0, alpha: 0.5).cgColor
         label2.layer.borderWidth = 2
         label2.layer.masksToBounds = true
@@ -49,63 +47,42 @@ class graph: UIViewController {
         ftext.clearButtonMode = .whileEditing
         ftext.returnKeyType = .done
         ftext.placeholder = "入力してください"
+        
         label.text = "例:2019/01/01"
         
-
-        //let rgba = UIColor(red: 255/255, green: 128/255, blue: 168/255, alpha: 1.0)
-        //button2.backgroundColor = rgba
-        //let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: 10, label: "A"), PieChartDataEntry(value: 90, label: "B")], label: "Data")
         //dataSet.colors = ChartColorTemplates.vordiplom()
-        //chart.data = PieChartData(dataSet: dataSet)
-        view.addSubview(chart)
+        view.addSubview(BaseCharts)
         view.addSubview(ftext)
         view.addSubview(label)
-
-        //var ar:[Double] = []
-        //var ar2:[String] = []
-        //let realm = try! Realm()
-        //let result = realm.objects(Event.self)
-        //chart.centerText = "One Week"
-        //let results = realm.objects(Event.self).sorted(byKeyPath: "event", ascending: false)
-        //for dates in result {
-            //print(dates.date)
-            //print(results)
-            //print(dates.event)
-            //let x = Double(dates.event)
-            //let y = String(dates.date)
-            //print(y)
-            //ar.append(x!)
-            //ar2.append(y)
         }
-        
-        //let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar[0], label: ar2[0]), PieChartDataEntry(value: ar[1], label: ar2[1]),PieChartDataEntry(value: ar[2], label: ar2[2]),PieChartDataEntry(value: ar[3], label: ar2[3]),PieChartDataEntry(value: ar[4], label: ar2[4]),PieChartDataEntry(value: ar[5], label: ar2[5]),PieChartDataEntry(value: ar[6], label: ar2[6])], label: "Date")
-        //dataSet.colors = ChartColorTemplates.vordiplom()
-        //chart.data = PieChartData(dataSet: dataSet)
-    
-
-
-    
     @IBAction func tapped_button(_ sender: Any) {
         label2.text = ftext.text
         ftext.text = ""
         let realm = try! Realm()
         let result = realm.objects(Event.self)
+        print(result)
         for dates in result {
+            let t = Double(dates.EntertainmentExpenses)
+            let u = Double(dates.koutuu)
+            let v = Double(dates.zappi)
             let x = Double(dates.event)
             let y = String(dates.date)
+            let z = Double(dates.FoodExpense)
             if label2.text == y {
-                ar.append(x!)
-                ar2.append(y)
-                chart.centerText = dates.date
+                    ar4.append(t!)
+                    ar5.append(u!)
+                    ar6.append(v!)
+                    ar1.append(x!)
+                    ar2.append(y)
+                    ar3.append(z!)
+                BaseCharts.centerText = dates.date
+                let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar1.last!, label: "交際費"),PieChartDataEntry(value: ar3.last!, label: "食費"),PieChartDataEntry(value: ar4.last!, label: "娯楽費"),PieChartDataEntry(value: ar5.last!, label: "交通費"),PieChartDataEntry(value: ar6.last!, label: "雑費")], label: "Date")
+                //dataSet.colors = ChartColorTemplates.vordiplom()
+                dataSet.colors = ChartColorTemplates.colorful()
+                BaseCharts.data = PieChartData(dataSet: dataSet)
             }
-            
         }
-        //let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar[0], label: ar2[0]), PieChartDataEntry(value: ar[1], label: ar2[1]),PieChartDataEntry(value: ar[2], label: ar2[2]),PieChartDataEntry(value: ar[3], label: ar2[3]),PieChartDataEntry(value: ar[4], label: ar2[4]),PieChartDataEntry(value: ar[5], label: ar2[5]),PieChartDataEntry(value: ar[6], label: ar2[6])], label: "Date")
-        let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar[0], label: ar2[0])], label: "Date")
-        dataSet.colors = ChartColorTemplates.vordiplom()
-        chart.data = PieChartData(dataSet: dataSet)
-        print(result)
-        
+       
         }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

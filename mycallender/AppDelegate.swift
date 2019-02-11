@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //})
         //Realm.Configuration.defaultConfiguration = config
         // ここまで
-        let config = Realm.Configuration(schemaVersion: 2)
-        Realm.Configuration.defaultConfiguration = config
-        
+        //if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
+        //    try! FileManager.default.removeItem(at: fileURL)
+        //}
         
         return true
     }

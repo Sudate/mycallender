@@ -7,20 +7,23 @@ let h2 = UIScreen.main.bounds.size.height
 
 
 
-//スケジュール内容入力テキスト
-let eventText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 150, width: 300, height: 50))
-
-let foodText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 200, width: 300, height: 50))
-
+//交際費内容入力テキスト
+let eventText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 200, width: 300, height: 50))
+//食費内容入力テキスト
+let foodText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 150, width: 300, height: 50))
+//娯楽費内容入力テキスト
 let EntertainmentText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 250, width: 300, height: 50))
-
+//交通費内容入力テキスト
+let koutuuText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 300, width: 300, height: 50))
+//雑費内容入力テキスト
+let zappiText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 350, width: 350, height: 50))
 
 //日付フォーム(UIDatePickerを使用)
-let y = UIDatePicker(frame: CGRect(x: 340, y: 350, width: 280, height: 300))
+let y = UIDatePicker(frame: CGRect(x: 340, y: 400, width: 280, height: 300))
 //日付表示
-let y_text = UILabel(frame: CGRect(x: 340 , y: 650, width: 300, height: 20))
+let y_text = UILabel(frame: CGRect(x: 340 , y: 700, width: 300, height: 20))
 class Input: UIViewController {
-    let labelKeep = UILabel(frame: CGRect(x: 450, y:800, width:100, height:50))
+    var labelKeep = UILabel(frame: CGRect(x: 550, y:800, width:100, height:50))
     var date: String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +42,6 @@ class Input: UIViewController {
         EntertainmentText.layer.cornerRadius = 10.0
         EntertainmentText.font = UIFont.systemFont(ofSize: 25)
         view.addSubview(EntertainmentText)
-        
-        
-        
         //food内容入力テキスト設定
         foodText.text = ""
         foodText.layer.borderColor = UIColor.gray.cgColor
@@ -49,8 +49,20 @@ class Input: UIViewController {
         foodText.layer.cornerRadius = 10.0
         foodText.font = UIFont.systemFont(ofSize: 25)
         view.addSubview(foodText)
-        
-
+        //koutuu内容入力テキスト設定
+        koutuuText.text = ""
+        koutuuText.layer.borderColor = UIColor.gray.cgColor
+        koutuuText.layer.borderWidth = 1.0
+        koutuuText.layer.cornerRadius = 10.0
+        koutuuText.font = UIFont.systemFont(ofSize: 25)
+        view.addSubview(koutuuText)
+        //zappi内容入力テキスト設定
+        zappiText.text = ""
+        zappiText.layer.borderColor = UIColor.gray.cgColor
+        zappiText.layer.borderWidth = 1.0
+        zappiText.layer.cornerRadius = 10.0
+        zappiText.font = UIFont.systemFont(ofSize: 25)
+        view.addSubview(zappiText)
         //日付フォーム設定
         y.datePickerMode = UIDatePicker.Mode.date
         y.timeZone = NSTimeZone.local
@@ -94,14 +106,14 @@ class Input: UIViewController {
         view.addSubview(backBtn)
         
         
-        //Expenseラベル
-        let label = UILabel(frame: CGRect(x: 150, y:150, width:100, height:50))
-        label.text = "Expense"
+        //交際費ラベル
+        let label = UILabel(frame: CGRect(x: 150, y:200, width:100, height:50))
+        label.text = "交際費"
         label.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(label)
         
         //foodラベル
-        let foodlabel = UILabel(frame: CGRect(x: 150, y:200, width:100, height:50))
+        let foodlabel = UILabel(frame: CGRect(x: 150, y:150, width:100, height:50))
         foodlabel.text = "食費"
         foodlabel.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(foodlabel)
@@ -112,11 +124,21 @@ class Input: UIViewController {
         entertainmentlabel.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(entertainmentlabel)
         
+        //交通費ラベル
+        let koutuulabel = UILabel(frame: CGRect(x: 150, y:300, width:100, height:50))
+        koutuulabel.text = "交通費"
+        koutuulabel.font = UIFont.systemFont(ofSize: 25)
+        self.view.addSubview(koutuulabel)
         
+        //雑費ラベル
+        let zappilabel = UILabel(frame: CGRect(x: 150, y:350, width:100, height:50))
+        zappilabel.text = "雑費"
+        zappilabel.font = UIFont.systemFont(ofSize: 25)
+        self.view.addSubview(zappilabel)
         
         //Dateラベル
-        let labelDate = UILabel(frame: CGRect(x: 150, y:300, width:100, height:50))
-        labelDate.text = "Date"
+        let labelDate = UILabel(frame: CGRect(x: 150, y:450, width:100, height:50))
+        labelDate.text = "日付"
         labelDate.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(labelDate)
     
@@ -144,26 +166,48 @@ class Input: UIViewController {
         
         
         
-        
+        if (EntertainmentText.text==""){
+            EntertainmentText.text="0"
+        }
+        if (foodText.text==""){
+            foodText.text="0"
+        }
+        if (eventText.text==""){
+            eventText.text="0"
+        }
+        if (koutuuText.text==""){
+            koutuuText.text="0"
+        }
+        if (zappiText.text==""){
+            zappiText.text="0"
+        }
         
         try! realm.write {
             
             //日付表示の内容とスケジュール入力の内容が書き込まれる。
-            let Events = [Event(value: ["EntertainmentExpenses": EntertainmentText.text,"date": y_text.text,"FoodExpense":foodText.text,"event": eventText.text])]
-            realm.add(Events)
+            let Events = [Event(value: ["EntertainmentExpenses": EntertainmentText.text,"date":
+                y_text.text,"FoodExpense":foodText.text,"event": eventText.text,"koutuu":koutuuText.text,"zappi":zappiText.text])]
+            realm.add(Events,update: true)
+           
+            
             print("データ書き込み中")
         }
         
         print("データ書き込み完了")
+        
         labelKeep.text = " saved! "
         labelKeep.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(labelKeep)
         
         
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            // 3.0秒後に実行したい処理
+            self.labelKeep.text = " "
+            self.view.addSubview(self.labelKeep)
+        }
         
     }
     
     
 }
-
-
