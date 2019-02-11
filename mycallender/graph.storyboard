@@ -34,10 +34,18 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5rj-aU-156" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="396" width="728" height="608"/>
+                                <rect key="frame" x="20" y="511" width="728" height="608"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6e-j9-8MI">
+                                <rect key="frame" x="22" y="69" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Month"/>
+                                <connections>
+                                    <segue destination="oE3-3T-88d" kind="show" id="uQ9-Zl-tbi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Mo8-uD-yZ0"/>
@@ -53,7 +61,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S08-75-EGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1.5625" y="169.921875"/>
+            <point key="canvasLocation" x="-70" y="-1174"/>
+        </scene>
+        <!--Mgraph-->
+        <scene sceneID="tCG-e4-k5z">
+            <objects>
+                <viewController id="oE3-3T-88d" customClass="mgraph" customModule="mycallender" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KV0-bd-7pJ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cev-7C-ZyE">
+                                <rect key="frame" x="26" y="58" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Daily"/>
+                                <connections>
+                                    <segue destination="Zc9-vl-B7m" kind="show" id="GDJ-Zs-C9i"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AGl-yr-bTm" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="26" y="529" width="722" height="475"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fOS-ny-Fvc">
+                                <rect key="frame" x="257" y="137" width="248" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BWB-NB-UPk"/>
+                    </view>
+                    <connections>
+                        <outlet property="pieChart" destination="AGl-yr-bTm" id="aHq-fh-3VI"/>
+                        <outlet property="textField" destination="fOS-ny-Fvc" id="cwM-O7-NzO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5pT-p6-DGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589.84375" y="-1174.21875"/>
         </scene>
     </scenes>
 </document>

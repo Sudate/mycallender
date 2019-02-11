@@ -13,6 +13,7 @@
 		68270E8A21B8B96E0053695D /* input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68270E8921B8B96E0053695D /* input.swift */; };
 		68270E8C21B8B9A20053695D /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68270E8B21B8B9A20053695D /* settings.swift */; };
 		68270E8E21B8B9C20053695D /* graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68270E8D21B8B9C20053695D /* graph.swift */; };
+		68BE61BD2210A46C0075CC25 /* mgraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE61BC2210A46C0075CC25 /* mgraph.swift */; };
 		68D6539221B8A2DD00169DA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D6539121B8A2DD00169DA5 /* AppDelegate.swift */; };
 		68D6539921B8A2DD00169DA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68D6539721B8A2DD00169DA5 /* Main.storyboard */; };
 		68D6539B21B8A2E000169DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68D6539A21B8A2E000169DA5 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		68270E8921B8B96E0053695D /* input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = input.swift; sourceTree = "<group>"; };
 		68270E8B21B8B9A20053695D /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
 		68270E8D21B8B9C20053695D /* graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graph.swift; sourceTree = "<group>"; };
+		68BE61BC2210A46C0075CC25 /* mgraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mgraph.swift; sourceTree = "<group>"; };
 		68D6538E21B8A2DD00169DA5 /* mycallender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mycallender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D6539121B8A2DD00169DA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68D6539821B8A2DD00169DA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				68270E8B21B8B9A20053695D /* settings.swift */,
 				68270E8921B8B96E0053695D /* input.swift */,
 				68270E8721B8B9360053695D /* home.swift */,
+				68BE61BC2210A46C0075CC25 /* mgraph.swift */,
 				68D653C921B8A35100169DA5 /* home.storyboard */,
 				68D653C721B8A33800169DA5 /* input.storyboard */,
 				68D653C521B8A32B00169DA5 /* settings.storyboard */,
@@ -429,6 +432,7 @@
 			files = (
 				68270E8E21B8B9C20053695D /* graph.swift in Sources */,
 				68270E8A21B8B96E0053695D /* input.swift in Sources */,
+				68BE61BD2210A46C0075CC25 /* mgraph.swift in Sources */,
 				68270E8C21B8B9A20053695D /* settings.swift in Sources */,
 				68D6539221B8A2DD00169DA5 /* AppDelegate.swift in Sources */,
 				A4507A3021CB33BA0025C65D /* Event.swift in Sources */,
