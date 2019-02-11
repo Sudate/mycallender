@@ -16,14 +16,14 @@ let EntertainmentText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 250, width
 //交通費内容入力テキスト
 let koutuuText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 300, width: 300, height: 50))
 //雑費内容入力テキスト
-let zappiText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 350, width: 350, height: 50))
+let zappiText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 350, width: 300, height: 50))
 
 //日付フォーム(UIDatePickerを使用)
 let y = UIDatePicker(frame: CGRect(x: 340, y: 400, width: 280, height: 300))
 //日付表示
 let y_text = UILabel(frame: CGRect(x: 340 , y: 700, width: 300, height: 20))
 class Input: UIViewController {
-    let labelKeep = UILabel(frame: CGRect(x: 550, y:800, width:100, height:50))
+    var labelKeep = UILabel(frame: CGRect(x: 550, y:800, width:100, height:50))
     var date: String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,37 +108,37 @@ class Input: UIViewController {
         
         //交際費ラベル
         let label = UILabel(frame: CGRect(x: 150, y:200, width:100, height:50))
-        label.text = "交際費"
+        label.text = "交際費🥂"
         label.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(label)
         
         //foodラベル
         let foodlabel = UILabel(frame: CGRect(x: 150, y:150, width:100, height:50))
-        foodlabel.text = "食費"
+        foodlabel.text = "食費 🍽"
         foodlabel.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(foodlabel)
         
         //娯楽費ラベル
         let entertainmentlabel = UILabel(frame: CGRect(x: 150, y:250, width:100, height:50))
-        entertainmentlabel.text = "娯楽費"
+        entertainmentlabel.text = "娯楽費🎶"
         entertainmentlabel.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(entertainmentlabel)
         
         //交通費ラベル
         let koutuulabel = UILabel(frame: CGRect(x: 150, y:300, width:100, height:50))
-        koutuulabel.text = "交通費"
+        koutuulabel.text = "交通費🚍"
         koutuulabel.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(koutuulabel)
         
         //雑費ラベル
         let zappilabel = UILabel(frame: CGRect(x: 150, y:350, width:100, height:50))
-        zappilabel.text = "雑費"
+        zappilabel.text = "雑費 📦"
         zappilabel.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(zappilabel)
         
         //Dateラベル
-        let labelDate = UILabel(frame: CGRect(x: 150, y:450, width:100, height:50))
-        labelDate.text = "日付"
+        let labelDate = UILabel(frame: CGRect(x: 150, y:500, width:100, height:50))
+        labelDate.text = "日付 🗓"
         labelDate.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(labelDate)
     
@@ -194,15 +194,20 @@ class Input: UIViewController {
         }
         
         print("データ書き込み完了")
+        
         labelKeep.text = " saved! "
         labelKeep.font = UIFont.systemFont(ofSize: 25)
         self.view.addSubview(labelKeep)
         
         
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            // 3.0秒後に実行したい処理
+            self.labelKeep.text = " "
+            self.view.addSubview(self.labelKeep)
+        }
         
     }
     
     
 }
-
-
