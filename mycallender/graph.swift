@@ -57,24 +57,23 @@ class graph: UIViewController {
         ftext.text = ""
         let realm = try! Realm()
         let result = realm.objects(Event.self)
+        print(result)
         for dates in result {
             let x = Double(dates.event)
             let y = String(dates.date)
             let z = Double(dates.FoodExpense)
             if label2.text == y {
-                if x != nil && z != nil{
                     ar.append(x!)
                     ar2.append(y)
                     ar3.append(z!)
-                }
                 BaseCharts.centerText = dates.date
+                let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar.last!, label: "ALL"),PieChartDataEntry(value: ar3.last!, label: "Food")], label: "Date")
+                //dataSet.colors = ChartColorTemplates.vordiplom()
+                dataSet.colors = ChartColorTemplates.colorful()
+                BaseCharts.data = PieChartData(dataSet: dataSet)
             }
         }
-        let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar.last!, label: "ALL"),PieChartDataEntry(value: ar3.last!, label: "Food")], label: "Date")
-        //dataSet.colors = ChartColorTemplates.vordiplom()
-        dataSet.colors = ChartColorTemplates.colorful()
-
-        BaseCharts.data = PieChartData(dataSet: dataSet)
+       
         }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
