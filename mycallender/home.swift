@@ -10,20 +10,23 @@ let h = UIScreen.main.bounds.size.height
 class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
 
+    //var ar6:[Double] = []
+
+
     
     
     //保存した食費
-    let foodlabelDate = UILabel(frame: CGRect(x: 250, y: 700, width: 200, height: 50))
+    let foodlabelDate = UILabel(frame: CGRect(x: 250, y: 700, width: 100, height: 50))
     //保存した娯楽費
-    let EntertainmentlabelDate = UILabel(frame: CGRect(x: 250, y: 750, width: 200, height: 50))
+    let EntertainmentlabelDate = UILabel(frame: CGRect(x: 250, y: 750, width: 100, height: 50))
     //保存した交際費
-    let labelDate = UILabel(frame: CGRect(x: 250, y: 800, width: 200, height: 50))
+    let labelDate = UILabel(frame: CGRect(x: 250, y: 800, width: 100, height: 50))
     //保存した交通費
-    let koutuulabelDate = UILabel(frame: CGRect(x: 250, y: 850, width: 200, height: 50))
+    let koutuulabelDate = UILabel(frame: CGRect(x: 250, y: 850, width: 100, height: 50))
     //保存した雑費
-    let zappilabelDate = UILabel(frame: CGRect(x: 250, y: 900, width: 200, height: 50))
+    let zappilabelDate = UILabel(frame: CGRect(x: 250, y: 900, width: 100, height: 50))
     //保存したtotal
-    let totallabelData=UILabel(frame: CGRect(x: 250, y: 550, width: 200, height: 50))
+    let totallabelData=UILabel(frame: CGRect(x: 250, y: 550, width: 100, height: 50))
     
     //タップした時に食費表示
     let foodlabelTitle = UILabel(frame: CGRect(x: 60, y: 700, width: 180, height: 50))
@@ -211,8 +214,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         view.addSubview(zappilabelTitle)
         
         
-        //予定がある場合、スケジュールをDBから取得・表示する。
-        //無い場合、「スケジュールはありません」と表示。
+
         labelDate.text = " "
         labelDate.textColor = .lightGray
         labelDate.backgroundColor = .orange
@@ -237,6 +239,67 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         zappilabelDate.textColor = .lightGray
         zappilabelDate.backgroundColor = .orange
         view.addSubview(zappilabelDate)
+        
+        totallabelData.text = " "
+        totallabelData.textColor = .white
+        totallabelData.backgroundColor = .purple
+        view.addSubview(totallabelData)
+        
+        
+        //追加ここから月のやつ
+        //保存した食費
+        let foodlabelDateTuki = UILabel(frame: CGRect(x: w/2, y: 700, width: 100, height: 50))
+        //保存した娯楽費
+        let EntertainmentlabelDateTuki = UILabel(frame: CGRect(x: w/2, y: 750, width: 100, height: 50))
+        //保存した交際費
+        let labelDateTuki = UILabel(frame: CGRect(x: w/2, y: 800, width: 100, height: 50))
+        //保存した交通費
+        let koutuulabelDateTuki = UILabel(frame: CGRect(x: w/2, y: 850, width: 100, height: 50))
+        //保存した雑費
+        let zappilabelDateTuki = UILabel(frame: CGRect(x: w/2, y: 900, width: 100, height: 50))
+        //保存したtotal
+        let totallabelDataTuki=UILabel(frame: CGRect(x: w/2, y: 550, width: 100, height: 50))
+        
+       
+        
+        labelDateTuki.text = " "
+        labelDateTuki.textColor = .lightGray
+        labelDateTuki.backgroundColor = .orange
+        view.addSubview(labelDateTuki)
+        
+        foodlabelDateTuki.text = " "
+        foodlabelDateTuki.textColor = .lightGray
+        foodlabelDateTuki.backgroundColor = .orange
+        view.addSubview(foodlabelDateTuki)
+        
+        EntertainmentlabelDateTuki.text = " "
+        EntertainmentlabelDateTuki.textColor = .lightGray
+        EntertainmentlabelDateTuki.backgroundColor = .orange
+        view.addSubview(EntertainmentlabelDateTuki)
+        
+        koutuulabelDateTuki.text = " "
+        koutuulabelDateTuki.textColor = .lightGray
+        koutuulabelDateTuki.backgroundColor = .orange
+        view.addSubview(koutuulabelDateTuki)
+        
+        zappilabelDateTuki.text = " "
+        zappilabelDateTuki.textColor = .lightGray
+        zappilabelDateTuki.backgroundColor = .orange
+        view.addSubview(zappilabelDateTuki)
+        
+        totallabelDataTuki.text = " "
+        totallabelDataTuki.textColor = .white
+        totallabelDataTuki.backgroundColor = .purple
+        view.addSubview(totallabelDataTuki)
+        
+        
+        
+        //月のやつここまで
+        
+        
+        
+        
+        
         
         
         let tmpDate = Calendar(identifier: .gregorian)
@@ -285,8 +348,101 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
                 let sum = a+b+c+d+e
                 let printSum = Int(sum)
                 totallabelData.text = " ¥ " + String(printSum)
-                totallabelData.textColor = .black
+                totallabelData.textColor = .white
                 view.addSubview(totallabelData)
+                
+                
+                //月ごとの表示
+                let tuki = "\(year)/\(m)"
+                var arFood:[Double] = []
+                var arEnter:[Double] = []
+                var arEvent:[Double] = []
+                var arKoutuu:[Double] = []
+                var arZappi:[Double] = []
+                let tukiResults = realm.objects(Event.self).filter("date BEGINSWITH '\(tuki)'")
+                for tu in tukiResults{
+                    let f = Double(tu.FoodExpense)
+                    let k = Double(tu.koutuu)
+                    let z = Double(tu.zappi)
+                    let e = Double(tu.event)
+                    let p = Double(tu.EntertainmentExpenses)
+                    arFood.append(f!)
+                    arEnter.append(p!)
+                    arZappi.append(z!)
+                    arKoutuu.append(k!)
+                    arEvent.append(e!)
+                    
+                }
+                
+                
+                /*
+                var zero = Double(0)
+                let foodSum = zero
+                let eventSum = zero
+                let enterSum = zero
+                let koutuuSum = zero
+                let zappiSum = zero
+                
+                
+                
+                for f in arFood{
+                    foodSum=f+foodSum
+                }
+                for f in arEvent{
+                    eventSum+=f
+                }
+                for f in arZappi{
+                    zappiSum+=f
+                }
+                for f in arKoutuu{
+                    koutuuSum+=f
+                }
+                for f in arEnter{
+                    enterSum+=f
+                }*/
+                let foodSum = arFood.reduce(0,+)
+                let eventSum = arEvent.reduce(0,+)
+                let zappiSum = arZappi.reduce(0,+)
+                let koutuuSum = arKoutuu.reduce(0,+)
+                let enterSum = arEnter.reduce(0,+)
+                
+                let foodInt = Int(foodSum)
+                let eventInt = Int(eventSum)
+                let zappiInt = Int(zappiSum)
+                let koutuuInt = Int(koutuuSum)
+                let enterInt = Int(enterSum)
+                
+                labelDateTuki.text = " ¥ " + String(eventInt)
+                labelDateTuki.textColor = .black
+                view.addSubview(labelDateTuki)
+                foodlabelDateTuki.text = " ¥ " + String(foodInt)
+                foodlabelDateTuki.textColor = .black
+                view.addSubview(foodlabelDateTuki)
+                EntertainmentlabelDateTuki.text = " ¥ " + String(enterInt)
+                EntertainmentlabelDateTuki.textColor = .black
+                view.addSubview(EntertainmentlabelDateTuki)
+                koutuulabelDateTuki.text = " ¥ " + String(koutuuInt)
+                koutuulabelDateTuki.textColor = .black
+                view.addSubview(koutuulabelDateTuki)
+                zappilabelDateTuki.text = " ¥ " + String(zappiInt)
+                zappilabelDateTuki.textColor = .black
+                view.addSubview(zappilabelDateTuki)
+                
+                
+                let aTuki:Double=Double(eventSum)
+                let bTuki:Double=Double(foodSum)
+                let cTuki:Double=Double(enterSum)
+                let dTuki:Double=Double(koutuuSum)
+                let eTuki:Double=Double(zappiSum)
+                
+                let sumTuki = aTuki+bTuki+cTuki+dTuki+eTuki
+                let printSumTuki = Int(sumTuki)
+                totallabelDataTuki.text = " ¥ " + String(printSumTuki)
+                totallabelDataTuki.textColor = .white
+                view.addSubview(totallabelDataTuki)
+                
+                
+                
             }
         }
         
