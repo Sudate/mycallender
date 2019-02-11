@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //    try! FileManager.default.removeItem(at: fileURL)
         //}
         
+        let setting = settings()
+        UILabel.appearance().font = UIFont(name: setting.setFontFamily, size: setting.setFontSize)
+        
         return true
     }
 
