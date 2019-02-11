@@ -16,7 +16,7 @@ let EntertainmentText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 250, width
 //交通費内容入力テキスト
 let koutuuText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 300, width: 300, height: 50))
 //雑費内容入力テキスト
-let zappiText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 350, width: 350, height: 50))
+let zappiText = UITextView(frame: CGRect(x: (w2 - 90) / 2, y: 350, width: 300, height: 50))
 
 //日付フォーム(UIDatePickerを使用)
 let y = UIDatePicker(frame: CGRect(x: 340, y: 400, width: 280, height: 300))
