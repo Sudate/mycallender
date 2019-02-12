@@ -15,14 +15,13 @@ class settings: UITableViewController {
     @IBOutlet weak var versionNumber: UILabel!
     
     //フォントの設定。アプリ全体に適用される。
-    var setFontFamily: String = "Helvetica Bold Oblique"
+    var setFontFamily: String = "Helvetica Neue"
     var setFontSize: CGFloat = 17
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fontFamily.text = setFontFamily
-        fontSize.text = String(format: "%.01f", Float(setFontSize))
         
         // UserDefaultsの情報を画面にセットする
         if let name = UserDefaults.standard.value(forKey: "name") as? String {
@@ -45,7 +44,7 @@ class settings: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: // 「設定」のセクション
-            return 2
+            return 1
         case 1: // 「その他」のセクション
             return 1
         default: // ここが実行されることはないはず
