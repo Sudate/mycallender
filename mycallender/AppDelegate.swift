@@ -29,8 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //    try! FileManager.default.removeItem(at: fileURL)
         //}
         
-        let setting = settings()
-        UILabel.appearance().font = UIFont(name: setting.setFontFamily, size: setting.setFontSize)
+        if let family = UserDefaults.standard.value(forKey: "fontFamily") as? String, let size = UserDefaults.standard.value(forKey: "fontSize") as? CGFloat {
+            UILabel.appearance().font = UIFont(name: family, size: size)
+        }
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 240/255, green: 255/255, blue: 255/255, alpha: 1)
         
         return true
     }

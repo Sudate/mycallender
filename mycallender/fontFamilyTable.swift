@@ -14,10 +14,12 @@ class fontFamilyTable: UITableViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var fontFamilyPicker: UIPickerView!
     @IBOutlet weak var fontSizeSegment: UISegmentedControl!
     
-    let setting = settings()
+    var setFontFamily: String = "Helvetica Neue"
+    var setFontSize: CGFloat = 14
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "フォントの種類"
         fontFamilyPicker.dataSource = self
         fontFamilyPicker.delegate = self
     }
@@ -60,28 +62,30 @@ class fontFamilyTable: UITableViewController, UIPickerViewDataSource, UIPickerVi
     
     //fontFamilyPickerのrowが選択された時の挙動
     func pickerView(_ fontFamilyPicker: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        setting.setFontFamily = fontFamilyList[row]
+        setFontFamily = fontFamilyList[row]
     }
 
     //ここからはフォントサイズを決めるSegmentedControlの設定
     @IBAction func segmentChange(_ sender: Any) {
          let selectedSize = fontSizeSegment.selectedSegmentIndex
         switch selectedSize {
-        case 0: // 「フォントの例」のセクション
-            setting.setFontSize = 14
-        case 1: // 「フォントの種類」のセクション
-            setting.setFontSize = 17
-        case 2: // 「フォントサイズ」のセクション
-            setting.setFontSize = 25
+        case 0: //「小」のセグメント
+            setFontSize = 14
+        case 1: //「中」のセグメント
+            setFontSize = 17
+        case 2: //「大」のセグメント
+            setFontSize = 25
         default: // ここが実行されることはないはず
-            setting.setFontSize = 17
+            setFontSize = 17
         }
     }
     
     //「適用する」ボタンが押された時の挙動
     @IBAction func botton(_ sender: Any) {
-        testFont.font = UIFont(name: setting.setFontFamily, size: setting.setFontSize)
-        UILabel.appearance().font = UIFont(name: setting.setFontFamily, size: setting.setFontSize)
+        testFont.font = UIFont(name: setFontFamily, size: setFontSize)
+        UILabel.appearance().font = UIFont(name: setFontFamily, size: setFontSize)
+        UserDefaults.standard.set(setFontFamily, forKey: "fontFamily")
+        UserDefaults.standard.set(setFontSize, forKey: "fontSize")
     }
     
 }

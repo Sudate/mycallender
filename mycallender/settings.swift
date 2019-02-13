@@ -11,28 +11,21 @@ import UIKit
 class settings: UITableViewController {
 
     @IBOutlet weak var fontFamily: UILabel!
-    @IBOutlet weak var fontSize: UILabel!
     @IBOutlet weak var versionNumber: UILabel!
-    
-    //フォントの設定。アプリ全体に適用される。
-    var setFontFamily: String = "Helvetica Neue"
-    var setFontSize: CGFloat = 17
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "設定"
         
-        fontFamily.text = setFontFamily
-        
-        // UserDefaultsの情報を画面にセットする
-        if let name = UserDefaults.standard.value(forKey: "name") as? String {
-            fontFamily.text = name
+        // UserDefaultsの情報を画面にセットする。
+        if let setFontFamily = UserDefaults.standard.value(forKey: "fontFamily") as? String {
+            fontFamily.text = setFontFamily
         }
         
         // アプリのバージョン
         if let version: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
             versionNumber.text = version
         }
-        
     }
 
     //セクションの数
@@ -40,11 +33,11 @@ class settings: UITableViewController {
         return 2
     }
     
-    //各セクションの項目の数。name1.countは多分リストの長さを拾ってくる関数だと思う。
+    //各セクションの項目の数。
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: // 「設定」のセクション
-            return 1
+            return 2
         case 1: // 「その他」のセクション
             return 1
         default: // ここが実行されることはないはず

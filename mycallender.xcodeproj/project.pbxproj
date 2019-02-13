@@ -25,6 +25,7 @@
 		68D653CA21B8A35100169DA5 /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68D653C921B8A35100169DA5 /* home.storyboard */; };
 		97A897DC2211C0990076346D /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A897DB2211C0990076346D /* settings.swift */; };
 		97EA129B2213601500EB4021 /* fontFamilyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EA129A2213601500EB4021 /* fontFamilyTable.swift */; };
+		97EA129D2213E52C00EB4021 /* themeColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EA129C2213E52C00EB4021 /* themeColorTable.swift */; };
 		A4507A3021CB33BA0025C65D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4507A2F21CB33BA0025C65D /* Event.swift */; };
 		F829557EC9F20B422E614703 /* Pods_mycallenderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEFFBF148FCEC7F7C517924 /* Pods_mycallenderTests.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		94E8F0B3651D56F017DD3BAC /* Pods-mycallenderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mycallenderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mycallenderTests/Pods-mycallenderTests.release.xcconfig"; sourceTree = "<group>"; };
 		97A897DB2211C0990076346D /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
 		97EA129A2213601500EB4021 /* fontFamilyTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fontFamilyTable.swift; sourceTree = "<group>"; };
+		97EA129C2213E52C00EB4021 /* themeColorTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = themeColorTable.swift; sourceTree = "<group>"; };
 		A4507A2F21CB33BA0025C65D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		CDEFFBF148FCEC7F7C517924 /* Pods_mycallenderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mycallenderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3950EA4B642956EBF445FDA /* Pods_mycallenderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mycallenderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +154,7 @@
 				68270E8721B8B9360053695D /* home.swift */,
 				97A897DB2211C0990076346D /* settings.swift */,
 				97EA129A2213601500EB4021 /* fontFamilyTable.swift */,
+				97EA129C2213E52C00EB4021 /* themeColorTable.swift */,
 				68BE61BC2210A46C0075CC25 /* mgraph.swift */,
 				68D653C921B8A35100169DA5 /* home.storyboard */,
 				68D653C721B8A33800169DA5 /* input.storyboard */,
@@ -434,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68270E8E21B8B9C20053695D /* graph.swift in Sources */,
+				97EA129D2213E52C00EB4021 /* themeColorTable.swift in Sources */,
 				97EA129B2213601500EB4021 /* fontFamilyTable.swift in Sources */,
 				68270E8A21B8B96E0053695D /* input.swift in Sources */,
 				68BE61BD2210A46C0075CC25 /* mgraph.swift in Sources */,
