@@ -16,37 +16,45 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
     
     
     //保存した食費
-    let foodlabelDate = UILabel(frame: CGRect(x: 250, y: 700, width: 100, height: 50))
+    let foodlabelDate = UILabel(frame: CGRect(x: 260, y: 700, width: 180, height: 50))
     //保存した娯楽費
-    let EntertainmentlabelDate = UILabel(frame: CGRect(x: 250, y: 750, width: 100, height: 50))
+    let EntertainmentlabelDate = UILabel(frame: CGRect(x: 260, y: 740, width: 180, height: 50))
     //保存した交際費
-    let labelDate = UILabel(frame: CGRect(x: 250, y: 800, width: 100, height: 50))
+    let labelDate = UILabel(frame: CGRect(x: 260, y: 790, width: 180, height: 50))
     //保存した交通費
-    let koutuulabelDate = UILabel(frame: CGRect(x: 250, y: 850, width: 100, height: 50))
+    let koutuulabelDate = UILabel(frame: CGRect(x: 260, y: 840, width: 180, height: 50))
     //保存した雑費
-    let zappilabelDate = UILabel(frame: CGRect(x: 250, y: 900, width: 100, height: 50))
+    let zappilabelDate = UILabel(frame: CGRect(x: 260, y: 880, width: 180, height: 50))
     //保存したtotal
-    let totallabelData=UILabel(frame: CGRect(x: 250, y: 550, width: 100, height: 50))
+    let totallabelData=UILabel(frame: CGRect(x: 260, y: 640, width: 180, height: 50))
     
     //タップした時に食費表示
     let foodlabelTitle = UILabel(frame: CGRect(x: 60, y: 700, width: 180, height: 50))
     //タップした時に娯楽費表示
-    let EntlabelTitle = UILabel(frame: CGRect(x: 60, y: 750, width: 180, height: 50))
+    let EntlabelTitle = UILabel(frame: CGRect(x: 60, y: 740, width: 180, height: 50))
     //タップした時に交際費表示
-    let labelTitle = UILabel(frame: CGRect(x: 60, y: 800, width: 180, height: 50))
+    let labelTitle = UILabel(frame: CGRect(x: 60, y: 790, width: 180, height: 50))
     //タップした時に交通費表示
-    let koutuulabelTitle = UILabel(frame: CGRect(x: 60, y: 850, width: 180, height: 50))
+    let koutuulabelTitle = UILabel(frame: CGRect(x: 60, y: 840, width: 180, height: 50))
     //タップした時に雑費表示
-    let zappilabelTitle = UILabel(frame: CGRect(x: 60, y: 900, width: 180, height: 50))
+    let zappilabelTitle = UILabel(frame: CGRect(x: 60, y: 880, width: 180, height: 50))
 
-    //タップした時にtotall表示
-    let totallabelTitle=UILabel(frame: CGRect(x: 60, y: 550, width: 180, height: 50))
+    //タップした時にtotall表示 日ごと&月ごと
+    //let totallabelTitle=UILabel(frame: CGRect(x: 60, y: 640, width: 180, height: 50))
+    
+    let  label=UILabel(frame: CGRect(x: 60, y: 640, width: 180, height: 50))
+    
+    //この日の合計
+    let todayLabel = UILabel(frame: CGRect(x: 260, y: 580, width: 180, height: 50))
+    //この月の合計
+    let monthLabel = UILabel(frame: CGRect(x: 460, y:580, width: 180, height: 50))
+
     
     
     //カレンダー部分
     let dateView = FSCalendar(frame: CGRect(x: 0, y: 30, width: w, height: 500))
     //タップした日付の表示
-    let Date = UILabel(frame: CGRect(x: 60, y: 600, width: 200, height: 100))
+    let Date = UILabel(frame: CGRect(x: 60, y: 530, width: 200, height: 100))
     override func viewDidLoad() {
         super.viewDidLoad()
         //カレンダー設定
@@ -72,34 +80,35 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         
         //交際費表示設定
         labelDate.text = ""
-        labelDate.font = UIFont.systemFont(ofSize: 18.0)
+        labelDate.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(labelDate)
         
         
         //food内容表示設定
         foodlabelDate.text = ""
-        foodlabelDate.font = UIFont.systemFont(ofSize: 18.0)
+        foodlabelDate.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(foodlabelDate)
         
         //娯楽費内容表示設定
         EntertainmentlabelDate.text = ""
-        EntertainmentlabelDate.font = UIFont.systemFont(ofSize: 18.0)
+        EntertainmentlabelDate.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(EntertainmentlabelDate)
         
         //交通費表示設定
         koutuulabelDate.text = ""
-        koutuulabelDate.font = UIFont.systemFont(ofSize: 18.0)
+        koutuulabelDate.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(koutuulabelDate)
         
         //雑費表示設定
         zappilabelDate.text = ""
-        zappilabelDate.font = UIFont.systemFont(ofSize: 18.0)
+        zappilabelDate.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(zappilabelDate)
         
         //total表示設定
         totallabelData.text=""
-        totallabelData.font = UIFont.systemFont(ofSize: 18.0)
+        totallabelData.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(totallabelData)
+        
         
         //スケジュール追加ボタン
        // let addBtn = UIButton(frame: CGRect(x: w - 70, y: h - 170, width: 60, height: 60))
@@ -111,14 +120,14 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         //view.addSubview(addBtn)l
         
         //Total表示
-        let label = UILabel(frame: CGRect(x: 60, y:550, width:180, height:50))
-        label.text = " Total  "
+        //let label = UILabel(frame: CGRect(x: 60, y:550, width:180, height:50))
+        /*label.text = " Total  "
         label.font = UIFont.systemFont(ofSize: 25)
         label.textAlignment = NSTextAlignment.center
         label.textColor = .white
         label.backgroundColor = .purple
         self.view.addSubview(label)
-        
+        */
         
     }
     
@@ -191,105 +200,175 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         labelTitle.text = " 交際費 "
         labelTitle.backgroundColor = .orange
         labelTitle.textAlignment = .center
+        labelTitle.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(labelTitle)
         
         foodlabelTitle.text = " 食費 "
         foodlabelTitle.backgroundColor = .orange
         foodlabelTitle.textAlignment = .center
+        foodlabelTitle.layer.cornerRadius = 3
+        foodlabelTitle.clipsToBounds = true
+        foodlabelTitle.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(foodlabelTitle)
         
         EntlabelTitle.text = " 娯楽費 "
         EntlabelTitle.backgroundColor = .orange
         EntlabelTitle.textAlignment = .center
+        EntlabelTitle.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(EntlabelTitle)
         
         koutuulabelTitle.text = " 交通費 "
         koutuulabelTitle.backgroundColor = .orange
         koutuulabelTitle.textAlignment = .center
+        koutuulabelTitle.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(koutuulabelTitle)
         
         zappilabelTitle.text = " 雑費 "
         zappilabelTitle.backgroundColor = .orange
         zappilabelTitle.textAlignment = .center
+        zappilabelTitle.layer.cornerRadius = 3
+        zappilabelTitle.clipsToBounds = true
+        zappilabelTitle.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(zappilabelTitle)
         
+        label.text = " 合計 "
+        label.textColor = .white
+        label.backgroundColor = .purple
+        label.textAlignment = .center
+        label.layer.cornerRadius = 3
+        label.font = UIFont.systemFont(ofSize: 25.0)
+        label.clipsToBounds = true
         
+        view.addSubview(label)
+        
+        todayLabel.text = " この日の合計 "
+        todayLabel.backgroundColor = .lightGray
+        todayLabel.textAlignment = .center
+        todayLabel.layer.cornerRadius = 3
+        todayLabel.clipsToBounds = true
+        todayLabel.font = UIFont.systemFont(ofSize: 25.0)
+        view.addSubview(todayLabel)
+        
+        monthLabel.text = " この月の合計 "
+        monthLabel.backgroundColor = .lightGray
+        monthLabel.textAlignment = .center
+        monthLabel.layer.cornerRadius = 3
+        monthLabel.clipsToBounds = true
+        monthLabel.font = UIFont.systemFont(ofSize: 25.0)
+        view.addSubview(monthLabel)
 
         labelDate.text = " "
         labelDate.textColor = .lightGray
         labelDate.backgroundColor = .orange
+        labelDate.textAlignment = .center
+        labelDate.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(labelDate)
         
         foodlabelDate.text = " "
         foodlabelDate.textColor = .lightGray
         foodlabelDate.backgroundColor = .orange
+        foodlabelDate.textAlignment = .center
+        foodlabelDate.layer.cornerRadius = 3
+        foodlabelDate.clipsToBounds = true
+        foodlabelDate.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(foodlabelDate)
         
         EntertainmentlabelDate.text = " "
         EntertainmentlabelDate.textColor = .lightGray
         EntertainmentlabelDate.backgroundColor = .orange
+        EntertainmentlabelDate.textAlignment = .center
+        EntertainmentlabelDate.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(EntertainmentlabelDate)
         
         koutuulabelDate.text = " "
         koutuulabelDate.textColor = .lightGray
         koutuulabelDate.backgroundColor = .orange
+        koutuulabelDate.textAlignment = .center
+        koutuulabelDate.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(koutuulabelDate)
         
         zappilabelDate.text = " "
         zappilabelDate.textColor = .lightGray
         zappilabelDate.backgroundColor = .orange
+        zappilabelDate.textAlignment = .center
+        zappilabelDate.layer.cornerRadius = 3
+        zappilabelDate.clipsToBounds = true
+        zappilabelDate.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(zappilabelDate)
         
         totallabelData.text = " "
         totallabelData.textColor = .white
         totallabelData.backgroundColor = .purple
+        totallabelData.textAlignment = .center
+        totallabelData.layer.cornerRadius = 3
+        totallabelData.clipsToBounds = true
+        totallabelData.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(totallabelData)
         
         
         //追加ここから月のやつ
         //保存した食費
-        let foodlabelDateTuki = UILabel(frame: CGRect(x: w/2, y: 700, width: 100, height: 50))
+        let foodlabelDateTuki = UILabel(frame: CGRect(x: 460, y: 700, width: 180, height: 50))
         //保存した娯楽費
-        let EntertainmentlabelDateTuki = UILabel(frame: CGRect(x: w/2, y: 750, width: 100, height: 50))
+        let EntertainmentlabelDateTuki = UILabel(frame: CGRect(x: 460, y: 740, width: 180, height: 50))
         //保存した交際費
-        let labelDateTuki = UILabel(frame: CGRect(x: w/2, y: 800, width: 100, height: 50))
+        let labelDateTuki = UILabel(frame: CGRect(x: 460, y: 790, width: 180, height: 50))
         //保存した交通費
-        let koutuulabelDateTuki = UILabel(frame: CGRect(x: w/2, y: 850, width: 100, height: 50))
+        let koutuulabelDateTuki = UILabel(frame: CGRect(x: 460, y: 840, width: 180, height: 50))
         //保存した雑費
-        let zappilabelDateTuki = UILabel(frame: CGRect(x: w/2, y: 900, width: 100, height: 50))
+        let zappilabelDateTuki = UILabel(frame: CGRect(x: 460, y: 880, width: 180, height: 50))
         //保存したtotal
-        let totallabelDataTuki=UILabel(frame: CGRect(x: w/2, y: 550, width: 100, height: 50))
+        let totallabelDataTuki=UILabel(frame: CGRect(x: 460, y: 640, width: 180, height: 50))
         
        
         
         labelDateTuki.text = " "
         labelDateTuki.textColor = .lightGray
         labelDateTuki.backgroundColor = .orange
+        labelDateTuki.textAlignment = .center
+        labelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(labelDateTuki)
         
         foodlabelDateTuki.text = " "
         foodlabelDateTuki.textColor = .lightGray
         foodlabelDateTuki.backgroundColor = .orange
+        foodlabelDateTuki.textAlignment = .center
+        foodlabelDateTuki.layer.cornerRadius = 3
+        foodlabelDateTuki.clipsToBounds = true
+        foodlabelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(foodlabelDateTuki)
+        
         
         EntertainmentlabelDateTuki.text = " "
         EntertainmentlabelDateTuki.textColor = .lightGray
         EntertainmentlabelDateTuki.backgroundColor = .orange
+        EntertainmentlabelDateTuki.textAlignment = .center
+        EntertainmentlabelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(EntertainmentlabelDateTuki)
         
         koutuulabelDateTuki.text = " "
         koutuulabelDateTuki.textColor = .lightGray
         koutuulabelDateTuki.backgroundColor = .orange
+        koutuulabelDateTuki.textAlignment = .center
+        koutuulabelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(koutuulabelDateTuki)
         
         zappilabelDateTuki.text = " "
         zappilabelDateTuki.textColor = .lightGray
         zappilabelDateTuki.backgroundColor = .orange
+        zappilabelDateTuki.textAlignment = .center
+        zappilabelDateTuki.layer.cornerRadius = 3
+        zappilabelDateTuki.clipsToBounds = true
+        zappilabelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(zappilabelDateTuki)
         
         totallabelDataTuki.text = " "
         totallabelDataTuki.textColor = .white
         totallabelDataTuki.backgroundColor = .purple
+        totallabelDataTuki.textAlignment = .center
+        totallabelDataTuki.layer.cornerRadius = 3
+        totallabelDataTuki.clipsToBounds = true
+        totallabelDataTuki.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(totallabelDataTuki)
         
         
