@@ -28,7 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
         //    try! FileManager.default.removeItem(at: fileURL)
         //}
-        sleep(1)
+        
+        //フォントの設定を呼び出す。
+        if let family = UserDefaults.standard.value(forKey: "fontFamily") as? String, let size = UserDefaults.standard.value(forKey: "fontSize") as? CGFloat {
+            UILabel.appearance().font = UIFont(name: family, size: size)
+        }
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 240/255, green: 255/255, blue: 255/255, alpha: 1)
+        
         return true
     }
 
