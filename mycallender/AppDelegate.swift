@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //    try! FileManager.default.removeItem(at: fileURL)
         //}
         
+        //フォントの設定を呼び出す。
         if let family = UserDefaults.standard.value(forKey: "fontFamily") as? String, let size = UserDefaults.standard.value(forKey: "fontSize") as? CGFloat {
             UILabel.appearance().font = UIFont(name: family, size: size)
         }

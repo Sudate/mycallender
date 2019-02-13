@@ -25,10 +25,12 @@ class fontFamilyTable: UITableViewController, UIPickerViewDataSource, UIPickerVi
     }
 
     //ここからはテーブルの設定
+    //セクションの数
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-
+    
+    //各セクションの項目の数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: // 「フォントの例」のセクション
@@ -40,7 +42,6 @@ class fontFamilyTable: UITableViewController, UIPickerViewDataSource, UIPickerVi
         default: // ここが実行されることはないはず
             return 0
         }
-
     }
     
     //ここからはフォントの種類を決めるPickerViweの設定
@@ -82,8 +83,10 @@ class fontFamilyTable: UITableViewController, UIPickerViewDataSource, UIPickerVi
     
     //「適用する」ボタンが押された時の挙動
     @IBAction func botton(_ sender: Any) {
+        //フォントの設定をアプリ全体に適用。
         testFont.font = UIFont(name: setFontFamily, size: setFontSize)
         UILabel.appearance().font = UIFont(name: setFontFamily, size: setFontSize)
+        //UserDefaultsにフォントの設定を保存。次回のアプリ起動時にAppDelegate.swiftで呼び出される。
         UserDefaults.standard.set(setFontFamily, forKey: "fontFamily")
         UserDefaults.standard.set(setFontSize, forKey: "fontSize")
     }
