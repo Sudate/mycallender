@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
         //    try! FileManager.default.removeItem(at: fileURL)
         //}
-        
+        sleep(1)
         return true
     }
 
