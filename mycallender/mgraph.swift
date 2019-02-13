@@ -114,7 +114,7 @@ class mgraph: UIViewController {
         let printSum2 = String(sumTuki2)
         
         pieChart.centerText = "合計:"+printSum2
-        let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: Double(eventInt2), label: "交際費"),PieChartDataEntry(value: Double(foodInt2), label: "食費"),PieChartDataEntry(value: Double(enterInt2), label: "娯楽費"),PieChartDataEntry(value: Double(koutuuInt2), label: "交通費"),PieChartDataEntry(value: Double(zappiInt2), label: "雑費")], label: "Date")
+        let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: Double(eventInt2), label: "交際費"),PieChartDataEntry(value: Double(foodInt2), label: "食費"),PieChartDataEntry(value: Double(enterInt2), label: "娯楽費"),PieChartDataEntry(value: Double(koutuuInt2), label: "交通費"),PieChartDataEntry(value: Double(zappiInt2), label: "雑費")], label: label3.text)
         dataSet.colors = ChartColorTemplates.vordiplom()
         dataSet.colors = ChartColorTemplates.colorful()
         pieChart.data = PieChartData(dataSet: dataSet)

@@ -110,14 +110,18 @@ class graph: UIViewController {
                     ar2.append(y)
                     ar3.append(z!)
                     BaseCharts.centerText = "合計:"+printSum
-                    let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar1.last!, label: "交際費"),PieChartDataEntry(value: ar3.last!, label: "食費"),PieChartDataEntry(value: ar4.last!, label: "娯楽費"),PieChartDataEntry(value: ar5.last!, label: "交通費"),PieChartDataEntry(value: ar6.last!, label: "雑費")], label: ar2.last!)
-                    //dataSet.colors = ChartColorTemplates.vordiplom()
-                    dataSet.colors = ChartColorTemplates.colorful()
-                    BaseCharts.data = PieChartData(dataSet: dataSet)
                 }
             
         }
-       
+        let dataSet = PieChartDataSet(values: [PieChartDataEntry(value: ar1.last!, label: "交際費"),PieChartDataEntry(value: ar3.last!, label: "食費"),PieChartDataEntry(value: ar4.last!, label: "娯楽費"),PieChartDataEntry(value: ar5.last!, label: "交通費"),PieChartDataEntry(value: ar6.last!, label: "雑費")], label: ar2.last!)
+        //dataSet.colors = ChartColorTemplates.vordiplom()
+        dataSet.colors = ChartColorTemplates.colorful()
+        BaseCharts.data = PieChartData(dataSet: dataSet)
+        ar4.append(0)
+        ar5.append(0)
+        ar6.append(0)
+        ar1.append(0)
+        ar3.append(0)
         }
     
     //func textFieldShouldReturn(_ textField: UITextField) -> Bool {
