@@ -263,7 +263,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                                     <state key="normal" title="適用する"/>
                                                     <connections>
-                                                        <action selector="botton:" destination="jTD-8R-Fd5" eventType="touchUpInside" id="eNw-CI-lhB"/>
+                                                        <action selector="fontButton:" destination="jTD-8R-Fd5" eventType="touchUpInside" id="Ph2-oa-YMl"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

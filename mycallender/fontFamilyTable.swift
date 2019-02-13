@@ -83,6 +83,8 @@ class fontFamilyTable: UITableViewController, UIPickerViewDataSource, UIPickerVi
     
     //「適用する」ボタンが押された時の挙動
     @IBAction func fontButton(_ sender: Any) {
+        func fontButton(_ sender: Any) {
+        }
         //フォントの設定をアプリ全体に適用。
         testFont.font = UIFont(name: setFontFamily, size: setFontSize)
         UILabel.appearance().font = UIFont(name: setFontFamily, size: setFontSize)
