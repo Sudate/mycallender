@@ -26,9 +26,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhD-oV-mDT">
-                                <rect key="frame" x="616" y="215" width="46" height="30"/>
+                                <rect key="frame" x="601" y="215" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="グラフ表示"/>
                                 <connections>
                                     <action selector="tapped_button:" destination="Zc9-vl-B7m" eventType="touchUpInside" id="trP-zE-xNq"/>
                                 </connections>
@@ -46,6 +46,13 @@
                                     <segue destination="oE3-3T-88d" kind="show" id="uQ9-Zl-tbi"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E2P-kE-SuH" customClass="DatePickerKeyboard" customModule="mycallender" customModuleProvider="target">
+                                <rect key="frame" x="239" y="132" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Mo8-uD-yZ0"/>
@@ -56,12 +63,13 @@
                     <connections>
                         <outlet property="BaseCharts" destination="5rj-aU-156" id="nMG-ke-med"/>
                         <outlet property="button" destination="IhD-oV-mDT" id="WMa-eg-NFD"/>
+                        <outlet property="ftext" destination="E2P-kE-SuH" id="OHZ-4a-pXj"/>
                         <outlet property="label2" destination="FsG-eC-2my" id="UIx-cX-jdp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S08-75-EGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-70" y="-1174"/>
+            <point key="canvasLocation" x="-70.3125" y="-1174.21875"/>
         </scene>
         <!--Mgraph-->
         <scene sceneID="tCG-e4-k5z">
@@ -76,7 +84,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Daily"/>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="oE3-3T-88d" eventType="touchUpInside" id="7oS-gh-FpM"/>
+                                    <action selector="btnPrev_click:" destination="oE3-3T-88d" eventType="touchUpInside" id="U57-2G-TQQ"/>
                                     <segue destination="fB5-IQ-RST" kind="unwind" unwindAction="unwindToTopWithSegue:" id="YjN-Tk-yht"/>
                                 </connections>
                             </button>
@@ -85,20 +93,36 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fOS-ny-Fvc">
-                                <rect key="frame" x="257" y="137" width="248" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gdg-Wq-4rp" customClass="DatePickerKeyboard2" customModule="mycallender" customModuleProvider="target">
+                                <rect key="frame" x="193" y="108" width="389" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsa-GF-QCi">
+                                <rect key="frame" x="642" y="108" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="グラフ表示"/>
+                                <connections>
+                                    <action selector="button2:" destination="oE3-3T-88d" eventType="touchUpInside" id="OkQ-hf-zXZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fF-fQ-G1h">
+                                <rect key="frame" x="366" y="214" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BWB-NB-UPk"/>
                     </view>
                     <connections>
+                        <outlet property="fftext" destination="gdg-Wq-4rp" id="UWU-T8-oDi"/>
+                        <outlet property="label3" destination="5fF-fQ-G1h" id="5Ha-Xn-nR6"/>
                         <outlet property="pieChart" destination="AGl-yr-bTm" id="aHq-fh-3VI"/>
-                        <outlet property="textField" destination="fOS-ny-Fvc" id="cwM-O7-NzO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pT-p6-DGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
