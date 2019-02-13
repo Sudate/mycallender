@@ -75,38 +75,38 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         //「主なスケジュール」表示設定
         labelTitle.text = ""
         labelTitle.textAlignment = .center
-        labelTitle.font = UIFont.systemFont(ofSize: 20.0)
+        //labelTitle.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(labelTitle)
         
         //交際費表示設定
         labelDate.text = ""
-        labelDate.font = UIFont.systemFont(ofSize: 20.0)
+        //labelDate.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(labelDate)
         
         
         //food内容表示設定
         foodlabelDate.text = ""
-        foodlabelDate.font = UIFont.systemFont(ofSize: 20.0)
+        //foodlabelDate.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(foodlabelDate)
         
         //娯楽費内容表示設定
         EntertainmentlabelDate.text = ""
-        EntertainmentlabelDate.font = UIFont.systemFont(ofSize: 20.0)
+        //EntertainmentlabelDate.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(EntertainmentlabelDate)
         
         //交通費表示設定
         koutuulabelDate.text = ""
-        koutuulabelDate.font = UIFont.systemFont(ofSize: 20.0)
+        //koutuulabelDate.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(koutuulabelDate)
         
         //雑費表示設定
         zappilabelDate.text = ""
-        zappilabelDate.font = UIFont.systemFont(ofSize: 20.0)
+        //zappilabelDate.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(zappilabelDate)
         
         //total表示設定
         totallabelData.text=""
-        totallabelData.font = UIFont.systemFont(ofSize: 20.0)
+        //totallabelData.font = UIFont.systemFont(ofSize: 20.0)
         view.addSubview(totallabelData)
         
         
@@ -200,7 +200,8 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         labelTitle.text = " 交際費 "
         labelTitle.backgroundColor = .orange
         labelTitle.textAlignment = .center
-        labelTitle.font = UIFont.systemFont(ofSize: 25.0)
+        //labelTitle.font = UIFont.systemFont(ofSize: 25.0)
+        //labelTitle.font = UIFont(name: "DIN Condensed", size: 14)
         view.addSubview(labelTitle)
         
         foodlabelTitle.text = " 食費 "
@@ -208,19 +209,19 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         foodlabelTitle.textAlignment = .center
         foodlabelTitle.layer.cornerRadius = 3
         foodlabelTitle.clipsToBounds = true
-        foodlabelTitle.font = UIFont.systemFont(ofSize: 25.0)
+        //foodlabelTitle.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(foodlabelTitle)
         
         EntlabelTitle.text = " 娯楽費 "
         EntlabelTitle.backgroundColor = .orange
         EntlabelTitle.textAlignment = .center
-        EntlabelTitle.font = UIFont.systemFont(ofSize: 25.0)
+        //EntlabelTitle.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(EntlabelTitle)
         
         koutuulabelTitle.text = " 交通費 "
         koutuulabelTitle.backgroundColor = .orange
         koutuulabelTitle.textAlignment = .center
-        koutuulabelTitle.font = UIFont.systemFont(ofSize: 25.0)
+        //koutuulabelTitle.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(koutuulabelTitle)
         
         zappilabelTitle.text = " 雑費 "
@@ -228,7 +229,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         zappilabelTitle.textAlignment = .center
         zappilabelTitle.layer.cornerRadius = 3
         zappilabelTitle.clipsToBounds = true
-        zappilabelTitle.font = UIFont.systemFont(ofSize: 25.0)
+        //zappilabelTitle.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(zappilabelTitle)
         
         label.text = " 合計 "
@@ -236,7 +237,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         label.backgroundColor = .purple
         label.textAlignment = .center
         label.layer.cornerRadius = 3
-        label.font = UIFont.systemFont(ofSize: 25.0)
+        //label.font = UIFont.systemFont(ofSize: 25.0)
         label.clipsToBounds = true
         
         view.addSubview(label)
@@ -246,7 +247,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         todayLabel.textAlignment = .center
         todayLabel.layer.cornerRadius = 3
         todayLabel.clipsToBounds = true
-        todayLabel.font = UIFont.systemFont(ofSize: 25.0)
+        //todayLabel.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(todayLabel)
         
         monthLabel.text = " この月の合計 "
@@ -254,14 +255,14 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         monthLabel.textAlignment = .center
         monthLabel.layer.cornerRadius = 3
         monthLabel.clipsToBounds = true
-        monthLabel.font = UIFont.systemFont(ofSize: 25.0)
+        //monthLabel.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(monthLabel)
 
         labelDate.text = " "
         labelDate.textColor = .lightGray
         labelDate.backgroundColor = .orange
         labelDate.textAlignment = .center
-        labelDate.font = UIFont.systemFont(ofSize: 25.0)
+        //labelDate.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(labelDate)
         
         foodlabelDate.text = " "
@@ -270,21 +271,21 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         foodlabelDate.textAlignment = .center
         foodlabelDate.layer.cornerRadius = 3
         foodlabelDate.clipsToBounds = true
-        foodlabelDate.font = UIFont.systemFont(ofSize: 25.0)
+        //foodlabelDate.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(foodlabelDate)
         
         EntertainmentlabelDate.text = " "
         EntertainmentlabelDate.textColor = .lightGray
         EntertainmentlabelDate.backgroundColor = .orange
         EntertainmentlabelDate.textAlignment = .center
-        EntertainmentlabelDate.font = UIFont.systemFont(ofSize: 25.0)
+        //EntertainmentlabelDate.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(EntertainmentlabelDate)
         
         koutuulabelDate.text = " "
         koutuulabelDate.textColor = .lightGray
         koutuulabelDate.backgroundColor = .orange
         koutuulabelDate.textAlignment = .center
-        koutuulabelDate.font = UIFont.systemFont(ofSize: 25.0)
+        //koutuulabelDate.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(koutuulabelDate)
         
         zappilabelDate.text = " "
@@ -293,7 +294,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         zappilabelDate.textAlignment = .center
         zappilabelDate.layer.cornerRadius = 3
         zappilabelDate.clipsToBounds = true
-        zappilabelDate.font = UIFont.systemFont(ofSize: 25.0)
+        //zappilabelDate.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(zappilabelDate)
         
         totallabelData.text = " "
@@ -302,7 +303,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         totallabelData.textAlignment = .center
         totallabelData.layer.cornerRadius = 3
         totallabelData.clipsToBounds = true
-        totallabelData.font = UIFont.systemFont(ofSize: 25.0)
+        //totallabelData.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(totallabelData)
         
         
@@ -326,7 +327,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         labelDateTuki.textColor = .lightGray
         labelDateTuki.backgroundColor = .orange
         labelDateTuki.textAlignment = .center
-        labelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
+        //labelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(labelDateTuki)
         
         foodlabelDateTuki.text = " "
@@ -335,7 +336,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         foodlabelDateTuki.textAlignment = .center
         foodlabelDateTuki.layer.cornerRadius = 3
         foodlabelDateTuki.clipsToBounds = true
-        foodlabelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
+        //foodlabelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(foodlabelDateTuki)
         
         
@@ -343,14 +344,14 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         EntertainmentlabelDateTuki.textColor = .lightGray
         EntertainmentlabelDateTuki.backgroundColor = .orange
         EntertainmentlabelDateTuki.textAlignment = .center
-        EntertainmentlabelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
+        //EntertainmentlabelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(EntertainmentlabelDateTuki)
         
         koutuulabelDateTuki.text = " "
         koutuulabelDateTuki.textColor = .lightGray
         koutuulabelDateTuki.backgroundColor = .orange
         koutuulabelDateTuki.textAlignment = .center
-        koutuulabelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
+        //koutuulabelDateTuki.font = UIFont.systemFont(ofSize: 10.0)
         view.addSubview(koutuulabelDateTuki)
         
         zappilabelDateTuki.text = " "
@@ -359,7 +360,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         zappilabelDateTuki.textAlignment = .center
         zappilabelDateTuki.layer.cornerRadius = 3
         zappilabelDateTuki.clipsToBounds = true
-        zappilabelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
+        //zappilabelDateTuki.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(zappilabelDateTuki)
         
         totallabelDataTuki.text = " "
@@ -368,7 +369,7 @@ class home: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalend
         totallabelDataTuki.textAlignment = .center
         totallabelDataTuki.layer.cornerRadius = 3
         totallabelDataTuki.clipsToBounds = true
-        totallabelDataTuki.font = UIFont.systemFont(ofSize: 25.0)
+        //totallabelDataTuki.font = UIFont.systemFont(ofSize: 25.0)
         view.addSubview(totallabelDataTuki)
         
         

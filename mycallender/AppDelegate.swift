@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         UINavigationBar.appearance().barTintColor = UIColor(red: 240/255, green: 255/255, blue: 255/255, alpha: 1)
-        
+        sleep(1)
         return true
     }
 
