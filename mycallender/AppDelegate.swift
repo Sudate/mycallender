@@ -30,11 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //}
         
         //フォントの設定を呼び出す。
-        if let family = UserDefaults.standard.value(forKey: "fontFamily") as? String, let size = UserDefaults.standard.value(forKey: "fontSize") as? CGFloat {
-            UILabel.appearance().font = UIFont(name: family, size: size)
+        if let fontFamily = UserDefaults.standard.value(forKey: "fontFamily") as? String, let fontSize = UserDefaults.standard.value(forKey: "fontSize") as? CGFloat {
+            UILabel.appearance().font = UIFont(name: fontFamily, size: fontSize)
         }
         
-        UINavigationBar.appearance().barTintColor = UIColor(red: 240/255, green: 255/255, blue: 255/255, alpha: 1)
+        //テーマカラーの設定を呼び出す。
+        if let setR = UserDefaults.standard.value(forKey: "themeColorR") as? CGFloat, let setG = UserDefaults.standard.value(forKey: "themeColorG") as? CGFloat, let setB = UserDefaults.standard.value(forKey: "themeColorB") as? CGFloat {
+            UINavigationBar.appearance().barTintColor = UIColor(red: setR/255, green: setG/255, blue: setB/255, alpha: 1)
+        }
         
         return true
     }
